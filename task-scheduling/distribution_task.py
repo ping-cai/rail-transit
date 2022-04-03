@@ -7,6 +7,13 @@ from textwrap import dedent
 from airflow import DAG
 from airflow.operators.bash import BashOperator
 
+
+def get_yesterday():
+    today = datetime.date.today()
+    one_day = datetime.timedelta(days=1)
+    return (today - one_day).strftime('%Y-%m-%d')
+
+
 dag_id = "distribution-dag"
 # 实例化DAG图
 with DAG(
@@ -28,28 +35,30 @@ with DAG(
         catchup=False,
         tags=['distribution']
 )as dag:
-    datetime.today().strftime('%Y-%m-%d')
     migration_command = '''
-    cd $PING_CAI_HOME/rail-transit/sicau-rail_transit-1.0-SNAPSHOT-bin/bin && sh mysql-to-hdfs-migration.sh
-    '''
+    cd $PING_CAI_HOME/rail-transit/sicau-rail_transit-1.0-SNAPSHOT-bin/bin && sh mysql-to-hdfs-migration.sh "%s"
+    ''' % (get_yesterday())
     # 定义执行顺序
     t1 = BashOperator(task_id="migration_task",
                       bash_command=migration_command)
     afc_extra_command = '''
-    cd $PING_CAI_HOME/rail-transit/sicau-rail_transit-1.0-SNAPSHOT-bin/bin && sh afc-extra.sh
-    '''
+    cd $PING_CAI_HOME/rail-transit/sicau-rail_transit-1.0-SNAPSHOT-bin/bin && sh afc-extra.sh "%s"
+    ''' % (get_yesterday())
     t2 = BashOperator(task_id="afc_extra_task",
                       bash_command=afc_extra_command)
     afc_pair_agg_command = '''
-    cd $PING_CAI_HOME/rail-transit/sicau-rail_transit-1.0-SNAPSHOT-bin/bin && sh afc-pair-agg.sh
-    '''
+    cd $PING_CAI_HOME/rail-transit/sicau-rail_transit-1.0-SNAPSHOT-bin/bin && sh afc-pair-agg.sh "%s"
+    ''' % (get_yesterday())
     t3 = BashOperator(task_id="afc_pair_agg_task",
                       bash_command=afc_pair_agg_command)
     static_distribution_command = '''
-    cd $PING_CAI_HOME/rail-transit/sicau-rail_transit-1.0-SNAPSHOT-bin/bin && sh static-distribution.sh
-    '''
+    cd $PING_CAI_HOME/rail-transit/sicau-rail_transit-1.0-SNAPSHOT-bin/bin && sh static-distribution.sh "%s"
+    ''' % (get_yesterday())
     t4 = BashOperator(task_id="static_distribution_task",
                       bash_command=static_distribution_command)
+    test_email_command = "cd $PING_CAI_HOME/rail-transit/sicau-rail_transit-1.0-SNAPSHOT-bin/bin && sh email.sh"
+    t5 = BashOperator(task_id="email_test_task",
+                      bash_command=test_email_command)
     t1.doc_md = dedent(
         """\
     #### Task Documentation
@@ -72,10 +81,4 @@ with DAG(
     {% endfor %}
     """
     )
-    t1 >> t2 >> t3 >> t4
-
-
-def get_yesterday():
-    today = datetime.date.today()
-    one_day = datetime.timedelta(days=1)
-    return today - one_day
+    t1 >> t2 >> t3 >> t4 >> t5

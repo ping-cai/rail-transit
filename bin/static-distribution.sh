@@ -9,4 +9,5 @@ spark-submit \
 --executor-memory 2G \
 --num-executors 1 \
 --jars $(echo ../lib/*.jar | tr ' ' ',') \
-$(dirname $(pwd))/lib/data-distribution-1.0-SNAPSHOT.jar
+$(dirname $(pwd))/lib/data-distribution-1.0-SNAPSHOT.jar \
+$1
