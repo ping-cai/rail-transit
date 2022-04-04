@@ -64,5 +64,20 @@
             <outputDirectory>conf</outputDirectory>
             <destName>migration.conf</destName>
         </file>
+        <file>
+            <source>${project.parent.basedir}/task-scheduling/src/distribution_task.py</source>
+            <outputDirectory>scheduler</outputDirectory>
+            <destName>distribution_task.py</destName>
+        </file>
+        <file>
+            <source>${project.parent.basedir}/task-scheduling/src/read_html.py</source>
+            <outputDirectory>scheduler</outputDirectory>
+            <destName>read_html.py</destName>
+        </file>
+        <file>
+            <source>${project.parent.basedir}/task-scheduling/resources/distribution_alarm_test.html</source>
+            <outputDirectory>scheduler/html</outputDirectory>
+            <destName>distribution_alarm_test.html</destName>
+        </file>
     </files>
 </assembly>

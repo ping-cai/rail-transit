@@ -1,18 +1,20 @@
 # -*- coding: UTF-8 -*-
 # 导入airflow需要的modules
 import datetime
-from datetime import datetime
 from textwrap import dedent
 
 from airflow import DAG
 from airflow.operators.bash import BashOperator
+from airflow.operators.email import EmailOperator
 
 
 def get_yesterday():
-    today = datetime.date.today()
+    current_day = datetime.date.today()
     one_day = datetime.timedelta(days=1)
-    return (today - one_day).strftime('%Y-%m-%d')
+    return (current_day - one_day).strftime('%Y-%m-%d')
 
+
+my_email = ["928689419@qq.com"]
 
 dag_id = "distribution-dag"
 # 实例化DAG图
@@ -22,19 +24,22 @@ with DAG(
         default_args={
             'owner': 'pingcai',
             'depends_on_past': False,  # 如上文依赖关系所示
-            'start_date': datetime(2022, 4, 3),  # DAGs都有个参数start_date，表示调度器调度的起始时间
-            'email': ['pingcai2022@163.com'],  # 用于alert
+            'start_date': datetime.datetime(2022, 4, 3),  # DAGs都有个参数start_date，表示调度器调度的起始时间
             'email_on_failure': True,
-            'email_on_retry': False,
-            'retries': 0,  # 重试策略
+            'email_on_retry': True,
+            'email': my_email,
+            'retries': 1,  # 重试策略
             'provide_context': True
         },
         description="客流分配任务调度",
-        schedule_interval="0 18 * * *",
-        start_date=datetime(2022, 4, 3),
+        schedule_interval="0 10 * * *",
+        start_date=datetime.datetime(2022, 4, 3),
         catchup=False,
         tags=['distribution']
 )as dag:
+    init_dos_command = '''cd $PING_CAI_HOME/rail-transit/sicau-rail_transit-1.0-SNAPSHOT-bin/bin && sh initDos.sh '''
+    t0 = BashOperator(task_id="init_dos_task",
+                      bash_command=init_dos_command)
     migration_command = '''
     cd $PING_CAI_HOME/rail-transit/sicau-rail_transit-1.0-SNAPSHOT-bin/bin && sh mysql-to-hdfs-migration.sh "%s"
     ''' % (get_yesterday())
@@ -56,9 +61,6 @@ with DAG(
     ''' % (get_yesterday())
     t4 = BashOperator(task_id="static_distribution_task",
                       bash_command=static_distribution_command)
-    test_email_command = "cd $PING_CAI_HOME/rail-transit/sicau-rail_transit-1.0-SNAPSHOT-bin/bin && sh email.sh"
-    t5 = BashOperator(task_id="email_test_task",
-                      bash_command=test_email_command)
     t1.doc_md = dedent(
         """\
     #### Task Documentation
@@ -81,4 +83,9 @@ with DAG(
     {% endfor %}
     """
     )
-    t1 >> t2 >> t3 >> t4 >> t5
+    from src import read_html
+
+    subject = "客流分配任务调度成功！"
+    email_task = EmailOperator(task_id="send_email", to=my_email, subject=subject,
+                               html_content=read_html.read("distribution_alarm_test.html"))
+    t0 >> t1 >> t2 >> t3 >> t4 >> email_task
