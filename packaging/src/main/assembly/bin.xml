@@ -17,6 +17,10 @@
             <includes>
                 <include>com.typesafe:config</include>
                 <include>org.apache.commons</include>
+                <include>org.apache.spark:spark-sql-kafka-0-10_2.12</include>
+                <include>org.apache.spark:spark-token-provider-kafka-0-10_2.12</include>
+                <include>org.apache.kafka:kafka-clients:jar</include>
+                <include>com.alibaba:fastjson</include>
             </includes>
         </dependencySet>
     </dependencySets>
@@ -58,12 +62,41 @@
             </includes>
         </fileSet>
     </fileSets>
+
     <files>
+        <!--data-generation模块的文件-->
+        <file>
+            <source>${project.parent.basedir}/data-generation/src/main/resources/db.properties</source>
+            <outputDirectory>conf/data-generation</outputDirectory>
+            <destName>db.properties</destName>
+        </file>
+        <file>
+            <source>${project.parent.basedir}/data-generation/src/main/resources/kafka.properties</source>
+            <outputDirectory>conf/data-generation</outputDirectory>
+            <destName>kafka.properties</destName>
+        </file>
+        <file>
+            <source>${project.parent.basedir}/data-generation/src/main/resources/logback.xml</source>
+            <outputDirectory>conf/data-generation</outputDirectory>
+            <destName>logback.xml</destName>
+        </file>
+        <!--data-migration模块的文件-->
         <file>
             <source>${project.parent.basedir}/data-migration/src/main/resources/migration.conf</source>
-            <outputDirectory>conf</outputDirectory>
+            <outputDirectory>conf/data-migration</outputDirectory>
             <destName>migration.conf</destName>
         </file>
+        <file>
+            <source>${project.parent.basedir}/data-migration/src/main/resources/core-site-client.xml</source>
+            <outputDirectory>conf/data-migration</outputDirectory>
+            <destName>core-site-client.xml</destName>
+        </file>
+        <file>
+            <source>${project.parent.basedir}/data-migration/src/main/resources/hdfs-site-client.xml</source>
+            <outputDirectory>conf/data-migration</outputDirectory>
+            <destName>hdfs-site-client.xml</destName>
+        </file>
+        <!--task-scheduling模块的文件-->
         <file>
             <source>${project.parent.basedir}/task-scheduling/src/distribution_task.py</source>
             <outputDirectory>scheduler</outputDirectory>
@@ -78,6 +111,12 @@
             <source>${project.parent.basedir}/task-scheduling/resources/distribution_alarm_test.html</source>
             <outputDirectory>scheduler/html</outputDirectory>
             <destName>distribution_alarm_test.html</destName>
+        </file>
+        <!--data-distribution模块的文件-->
+        <file>
+            <source>${project.parent.basedir}/data-distribution/src/main/resources/distribution.conf</source>
+            <outputDirectory>conf/data-distribution</outputDirectory>
+            <destName>distribution.conf</destName>
         </file>
     </files>
 </assembly>

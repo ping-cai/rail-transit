@@ -5,11 +5,7 @@ object FlowWriterTest {
   def main(args: Array[String]): Unit = {
     val sparkSession = SparkSession.builder().master("local[*]").appName("FlowWriter").getOrCreate()
     val distributionService = FlowService.serviceInit(sparkSession)
-    val odFilePath = if (args.isEmpty) {
-      "/dwm/od_record/15_minutes"
-    } else {
-      s"/dwm/od_record/15_minutes/trading_date=${args(0)}"
-    }
+    val odFilePath = "/dwm/od_record/15_minutes/trading_date=2022-04-02"
     val flowService = new FlowService(distributionService)
     val flowWriter = new FlowWriter(flowService)
     flowWriter.write(odFilePath)

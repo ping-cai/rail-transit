@@ -8,40 +8,73 @@ import org.apache.spark.sql.{Encoder, Encoders}
 import scala.collection.JavaConverters._
 
 /**
-  * 加载路网图
+  * 构建路网图
   */
 class RoadNetWorkLoader(mysqlConf: MysqlConf) extends Serializable {
+  /**
+    * 区间表
+    */
   private val sectionTable: String = RailTransitTable.sectionTable
+  /**
+    * 车站表
+    */
   private val stationTable: String = RailTransitTable.stationTable
+  /**
+    * 换乘惩罚系数
+    */
   private val transferPenalties: Int = DistributionConf.transferPenalties
+  /**
+    * 换乘真实时间
+    */
   private val transferTimeMs: Int = DistributionConf.transferTime * 1000
+
   val edgeInfoEncoder: Encoder[EdgeInfo] = Encoders.kryo[EdgeInfo]
+  /**
+    * 区间完整信息
+    */
   private val edgeInfoArray: Array[EdgeInfo] = {
     val actualEdges = loadActual()
     val virtualEdges = loadVirtual()
     actualEdges ++ virtualEdges
   }
+  /**
+    * 路网图
+    */
   val graph: Graph = {
     val edges = edgeInfoArray.map(x => {
       x.edge
     }).toList.asJava
     new Graph(edges)
   }
+  /**
+    * 真实区间旅行时间Map
+    */
   val sectionMap: Map[Edge, Int] = {
     edgeInfoArray.filter(x => {
       x.direction != 0
     }).map(x => (x.edge, (x.edge.getWeight * 1000).toInt)).toMap
   }
+  /**
+    * 换乘区间旅行时间Map
+    */
   val transferMap: Map[Edge, Int] = {
     edgeInfoArray.filter(x => x.direction == 0)
       .map(x => (x.edge, transferTimeMs)).toMap
   }
+  /**
+    * 区间信息Map
+    */
   val edgeInfoMap: Map[Edge, EdgeInfo] = {
     edgeInfoArray.map(x => {
       (x.edge, x)
     }).toMap
   }
 
+  /**
+    * 加载真实区间信息
+    *
+    * @return
+    */
   def loadActual(): Array[EdgeInfo] = {
     val sectionFrame = mysqlConf.load(sectionTable)
     sectionFrame.createOrReplaceTempView("section_info")
@@ -74,6 +107,11 @@ WHERE travel_time IS NOT NULL
     })(edgeInfoEncoder).collect()
   }
 
+  /**
+    * 加载换乘区间信息
+    *
+    * @return
+    */
   def loadVirtual(): Array[EdgeInfo] = {
     val stationFrame = mysqlConf.load(stationTable)
     stationFrame.createOrReplaceTempView(stationTable)

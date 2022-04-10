@@ -82,7 +82,7 @@ public final class Yen {
                     }
                 }
 
-                /* 从图形中临时删除根路径中的所有节点，而不是“spur”节点 */
+                /* 从图形中临时删除根路径中的所有节点，除了“spur”节点 */
                 for (Edge rootPathEdge : rootPath.getEdges()) {
                     String rn = rootPathEdge.getFromNode();
                     if (!rn.equals(spurNode)) {

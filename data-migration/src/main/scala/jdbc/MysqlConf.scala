@@ -5,7 +5,18 @@ import java.util.Properties
 import config.Conf
 import org.apache.spark.sql.{DataFrame, Dataset, SaveMode, SparkSession}
 
-class MysqlConf(sparkSession: SparkSession) extends Serializable {
+/**
+  * MySQL功能类
+  *
+  * @param sparkSession Spark会话对象
+  */
+class MysqlConf(val sparkSession: SparkSession) extends Serializable {
+  /**
+    * 通过SparkAPI读取MySQL的表
+    *
+    * @param tableName 表名
+    * @return
+    */
   def load(tableName: String): DataFrame = {
     sparkSession
       .read
@@ -21,10 +32,4 @@ object MysqlConf {
   val prop: Properties = new Properties()
   prop.put("user", mysqlUser)
   prop.put("password", mysqlPassword)
-
-  def overWrite[T](tableName: String, data: Dataset[T]): Unit = {
-    data.write
-      .mode(SaveMode.Overwrite)
-      .jdbc(MysqlConf.mysqlUrl, tableName, MysqlConf.prop)
-  }
 }

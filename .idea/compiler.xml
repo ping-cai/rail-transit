@@ -12,7 +12,11 @@
         <module name="data-migration" />
         <module name="data-preparation" />
         <module name="packaging" />
+        <module name="show" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="data-applications" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

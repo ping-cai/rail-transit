@@ -4,8 +4,13 @@ import org.apache.spark.sql.{DataFrame, SaveMode, SparkSession}
 class AfcExtract(sparkSession: SparkSession, hdfsPath: String = AfcExtract.hdfsPath) {
   private val readPath = s"${HdfsConf.hdfsNamespace}$hdfsPath"
 
-  def read(): DataFrame = {
-    val dataFrame = sparkSession.read.option("header", "true").csv(readPath)
+  /**
+    * 抽取AFC数据字段
+    *
+    * @param dataFrame 数据
+    * @return
+    */
+  private def extra(dataFrame: DataFrame): DataFrame = {
     dataFrame.createOrReplaceTempView("afc_record")
     val extraFrame = sparkSession.sql(
       """
@@ -15,16 +20,26 @@ FROM afc_record
     extraFrame
   }
 
-  def read(trading_date: String): DataFrame = {
+  /**
+    * 读取全部AFC数据进行处理
+    *
+    * @return
+    */
+  def extraAllDay(): DataFrame = {
+    val dataFrame = sparkSession.read.option("header", "true").csv(readPath)
+    extra(dataFrame)
+  }
+
+  /**
+    * 时间分区读取AFC数据进行处理
+    *
+    * @param trading_date 交易时间分区
+    * @return
+    */
+  def extraOneDay(trading_date: String): DataFrame = {
     val dataFrame = sparkSession.read.option("header", "true").csv(readPath)
       .where(s"trading_date='$trading_date'")
-    dataFrame.createOrReplaceTempView("afc_record")
-    val extraFrame = sparkSession.sql(
-      s"""
-SELECT ticket_id,trading_time,transaction_event,station_id,date(trading_time) trading_date
-FROM afc_record
-      """.stripMargin)
-    extraFrame
+    extra(dataFrame)
   }
 }
 
@@ -45,10 +60,10 @@ object AfcExtract {
     val relativePath = "/dwd/rail_transit/afc_record"
     val aFCExtract = new AfcExtract(sparkSession, hdfsPath)
     if (args.isEmpty) {
-      val extraFrame = aFCExtract.read()
+      val extraFrame = aFCExtract.extraAllDay()
       save(extraFrame, relativePath)
     } else {
-      val extraFrame = aFCExtract.read(args(0))
+      val extraFrame = aFCExtract.extraOneDay(args(0))
       save(extraFrame, relativePath)
     }
   }

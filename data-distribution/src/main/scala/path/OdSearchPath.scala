@@ -4,8 +4,20 @@ import od.{OdTransform, OdTransformInfo}
 import org.apache.spark.sql.{Dataset, Encoders}
 import station.StationInfo
 
-class OdSearchPath(val pathSearchService: PathSearchService,val odTransform: OdTransform) extends Serializable {
+/**
+  * Od搜索路径
+  *
+  * @param pathSearchService 路径搜索接口服务
+  * @param odTransform       od编号转换
+  */
+class OdSearchPath(val pathSearchService: PathSearchService, val odTransform: OdTransform) extends Serializable {
 
+  /**
+    * 路径搜索
+    *
+    * @param odData 转换编号的od数据集
+    * @return
+    */
   def searchPath(odData: Dataset[OdTransformInfo]): Dataset[PathInfo] = {
     val encoder = Encoders.kryo[PathInfo]
     odData.map(od => {
@@ -20,6 +32,12 @@ class OdSearchPath(val pathSearchService: PathSearchService,val odTransform: OdT
     })(encoder).filter(x => x != null)
   }
 
+  /**
+    * 搜索全部Od的路径集合
+    *
+    * @param stationInfo 车站信息
+    * @return
+    */
   def searchAllPath(stationInfo: Dataset[StationInfo]): Dataset[SimplePathInfo] = {
     stationInfo.createOrReplaceTempView("station_info")
     val sparkSession = stationInfo.sparkSession

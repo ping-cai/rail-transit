@@ -12,7 +12,18 @@ import path.{OdSearchPath, PathSearchService, RoadNetWorkLoader}
 
 import scala.collection.JavaConverters._
 
+/**
+  * 流量聚合
+  *
+  * @param distributionService 客流分配服务
+  */
 class FlowService(val distributionService: DistributionService) {
+  /**
+    * 路径流量转换为区间流量
+    *
+    * @param pathFlowData 路径流量集
+    * @return
+    */
   def mapSectionFlow(pathFlowData: Dataset[PathFlow]): Dataset[SectionFlow] = {
     val odSearchPath = distributionService.odSearchPath
     val pathSearchService = odSearchPath.pathSearchService
@@ -44,6 +55,12 @@ class FlowService(val distributionService: DistributionService) {
     })
   }
 
+  /**
+    * 路径流量转换为换乘流量
+    *
+    * @param pathFlowData 路径流量集
+    * @return
+    */
   def mapTransferFlow(pathFlowData: Dataset[PathFlow]): Dataset[TransferFlow] = {
     val odSearchPath = distributionService.odSearchPath
     val pathSearchService = odSearchPath.pathSearchService
@@ -77,6 +94,12 @@ class FlowService(val distributionService: DistributionService) {
     })
   }
 
+  /**
+    * 路径流量转换为车站流量
+    *
+    * @param pathFlowData 路径流量集
+    * @return
+    */
   def mapStationFlow(pathFlowData: Dataset[PathFlow]): Dataset[StationFlow] = {
     val odSearchPath = distributionService.odSearchPath
     val pathSearchService = odSearchPath.pathSearchService
@@ -100,10 +123,10 @@ class FlowService(val distributionService: DistributionService) {
         val lastEdge = edges.getLast
         val firstSeconds = sectionMap(firstEdge)
         val firstStationFlow = StationFlow(new Timestamp(startTime), new Timestamp(startTime + firstSeconds),
-          firstEdge.getFromNode, pathFlow.passengers)
+          firstEdge.getFromNode, pathFlow.passengers, 0)
         val lastSeconds = sectionMap(lastEdge)
         val secondStationFlow = StationFlow(new Timestamp(endTime - lastSeconds), new Timestamp(endTime),
-          lastEdge.getToNode, pathFlow.passengers)
+          lastEdge.getToNode, 0, pathFlow.passengers)
         List(firstStationFlow, secondStationFlow)
       })
     })
@@ -123,7 +146,7 @@ object FlowService {
     val flowService = new FlowService(distributionService)
   }
 
-   def serviceInit(sparkSession: SparkSession) = {
+  def serviceInit(sparkSession: SparkSession) = {
     val mysqlConf = new MysqlConf(sparkSession)
     val roadNetWorkLoader = new RoadNetWorkLoader(mysqlConf)
     val pathSearchService = new PathSearchService(roadNetWorkLoader)
@@ -136,6 +159,13 @@ object FlowService {
     distributionService
   }
 
+  /**
+    * 聚合区间流量
+    *
+    * @param sectionFlowData 区间流量
+    * @param granularity     分配粒度
+    * @return
+    */
   def aggSectionFlow(sectionFlowData: Dataset[SectionFlow], granularity: Int): Dataset[SectionFlow] = {
     import sectionFlowData.sparkSession.implicits._
     val windowDuration = s"$granularity minutes"
@@ -150,6 +180,13 @@ object FlowService {
       .as
   }
 
+  /**
+    * 聚合换乘流量
+    *
+    * @param transferFlowData 换乘流量
+    * @param granularity      分配粒度
+    * @return
+    */
   def aggTransferFlow(transferFlowData: Dataset[TransferFlow], granularity: Int): Dataset[TransferFlow] = {
     import transferFlowData.sparkSession.implicits._
     val windowDuration = s"$granularity minutes"
@@ -164,17 +201,24 @@ object FlowService {
       .as
   }
 
+  /**
+    * 聚合车站流量
+    *
+    * @param stationFlowData 车站流量
+    * @param granularity     分配粒度
+    * @return
+    */
   def aggStationFlow(stationFlowData: Dataset[StationFlow], granularity: Int): Dataset[StationFlow] = {
     import stationFlowData.sparkSession.implicits._
     val windowDuration = s"$granularity minutes"
     stationFlowData
-      .select($"start_time", $"station_id", $"flow")
+      .select($"start_time", $"station_id", $"in_flow", $"out_flow")
       .groupBy(
         window($"start_time", windowDuration),
         $"station_id"
       )
-      .agg(sum($"flow") as "flow")
-      .select($"window.start" as "start_time", $"window.end" as "end_time", $"station_id", $"flow")
+      .agg(sum($"in_flow") as "in_flow", sum($"out_flow") as "out_flow")
+      .select($"window.start" as "start_time", $"window.end" as "end_time", $"station_id", $"in_flow", $"out_flow")
       .as
   }
 }

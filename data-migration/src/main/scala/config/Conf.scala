@@ -13,4 +13,6 @@ object Conf {
   val oraclePassword: String = config.getString("oracle.password")
   val stationTable: String = config.getString("station.table.name")
   val sectionTable: String = config.getString("section.table.name")
+  val brokers: String = config.getString("kafka.bootstrap.servers")
+
 }

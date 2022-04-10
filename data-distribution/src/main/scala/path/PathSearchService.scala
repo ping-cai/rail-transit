@@ -7,6 +7,13 @@ import config.DistributionConf
 import domain.Path
 import scala.collection.JavaConverters._
 
+/**
+  * 路径搜索和修正
+  *
+  * @param roadNetWorkLoader 路网图实例
+  * @param pathNum           路径数
+  * @param stopStationTime   停站时间
+  */
 class PathSearchService(val roadNetWorkLoader: RoadNetWorkLoader,
                         pathNum: Int = DistributionConf.pathNum,
                         stopStationTime: Int = DistributionConf.stopStationTime) extends Serializable {
@@ -20,7 +27,8 @@ class PathSearchService(val roadNetWorkLoader: RoadNetWorkLoader,
     * @return K短路List<Path> 集合
     */
   @throws[CloneNotSupportedException]
-  def getPathList(source: String, target: String, pathNum: Int): util.List[Path] = Yen.ksp(roadNetWorkLoader.graph, source, target, pathNum)
+  def getPathList(source: String, target: String, pathNum: Int): util.List[Path] =
+    Yen.ksp(roadNetWorkLoader.graph, source, target, pathNum)
 
   /**
     * 默认参数K短路计算
@@ -30,10 +38,12 @@ class PathSearchService(val roadNetWorkLoader: RoadNetWorkLoader,
     * @return K短路List<Path> 集合
     */
   @throws[CloneNotSupportedException]
-  def getPathList(source: String, target: String): util.List[Path] = Yen.ksp(roadNetWorkLoader.graph, source, target, pathNum)
+  def getPathList(source: String, target: String): util.List[Path] =
+    Yen.ksp(roadNetWorkLoader.graph, source, target, pathNum)
 
   /**
-    * 添加停战时间的K短路计算
+    * 添加停站时间的K短路计算
+    * 过滤空路径
     *
     * @param source 进站，源地址
     * @param target 出站，目的地址

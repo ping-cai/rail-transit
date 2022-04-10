@@ -1,7 +1,5 @@
-import AfcPair.aggregation
 import org.apache.spark.sql.functions.window
 import org.apache.spark.sql.{DataFrame, SparkSession}
-import org.apache.spark.storage.StorageLevel
 
 class AfcPair(sparkSession: SparkSession, afcFrame: DataFrame) {
   /**
@@ -34,25 +32,6 @@ AND in_station_record.ticket_seq=out_station_record.ticket_seq
       """.stripMargin)
     odFrame
   }
-
-  /**
-    * 存储afc所有ETL过程的数据
-    *
-    */
-  def save(): Unit = {
-    val aFCPair = new AfcPair(sparkSession, afcFrame)
-    val odFrame = aFCPair.noAggregation()
-    val odPath = "/dwd/od_record"
-    odFrame.persist(StorageLevel.MEMORY_AND_DISK_SER)
-    val afcWriter = new AfcWriter()
-    afcWriter.write(odFrame, odPath)
-    val granularityList = List(15, 30, 60)
-    granularityList.foreach(x => {
-      val aggFrame = aggregation(x, odFrame)
-      val aggRelativePath = s"/dwm/od_record/${x}_minutes"
-      afcWriter.write(aggFrame, aggRelativePath)
-    })
-  }
 }
 
 object AfcPair {
@@ -60,12 +39,13 @@ object AfcPair {
     val sparkSession = SparkSession.builder().appName("AFCPair").getOrCreate()
     val afcExtract = new AfcExtract(sparkSession)
     val extraFrame = if (args.isEmpty) {
-      afcExtract.read()
+      afcExtract.extraAllDay()
     } else {
-      afcExtract.read(args(0))
+      afcExtract.extraOneDay(args(0))
     }
     val afcPair = new AfcPair(sparkSession, extraFrame)
-    afcPair.save()
+    val afcWriter = new AfcWriter(afcPair)
+    afcWriter.writeOd()
   }
 
   /**
@@ -83,6 +63,5 @@ object AfcPair {
     val odAggFrame = odAggregation.select($"window.start", $"window.end", $"in_station_id", $"out_station_id", $"count" as "passengers", $"trading_date")
     odAggFrame
   }
-
 
 }

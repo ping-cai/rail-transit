@@ -1,4 +1,8 @@
+package afc;
+
 import lombok.Data;
+import util.JdbcUtil;
+import util.TimeUtil;
 
 import java.io.IOException;
 import java.sql.*;
@@ -8,11 +12,11 @@ import java.util.*;
  * AFC记录对象
  */
 @Data
-public class AFCRecord {
+public class AfcRecord {
     private static final Random random = new Random();
     public static final String TICKET_EXAMPLE = "00004000637665361410";
     public static final long TICKET_PREFIX = 4000000000000000L;
-    public static final Map<String, AFCRecord> TICKET_MAP = new HashMap<String, AFCRecord>();
+    public static final Map<String, AfcRecord> TICKET_MAP = new HashMap<String, AfcRecord>();
     public static final int TICKET_NUM = 5000000;
     public static final String STATION_IN = "21";
     public static final String STATION_OUT = "22";
@@ -20,6 +24,15 @@ public class AFCRecord {
     public static final List<Integer> JOINT_TRANSACTION = Arrays.asList(0, 170);
     public static final int EQUIPMENT_NUMBER_EXAMPLE = 3000000;
     public static final String QUERY_STATION_SQL = "SELECT station_id FROM afc_station_info";
+
+    static {
+        try {
+            initStationList();
+        } catch (SQLException | IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
     /**
      * 预留
      */
@@ -65,8 +78,8 @@ public class AFCRecord {
      */
     private String equipmentNumber;
 
-    public static AFCRecord getOneRecord() {
-        AFCRecord afcRecord = new AFCRecord();
+    public static AfcRecord getOneRecord() {
+        AfcRecord afcRecord = new AfcRecord();
         afcRecord.setReserve(0);
         Timestamp randomSendTime = TimeUtil.getRandomTimestamp();
         afcRecord.setSendingTime(randomSendTime);
@@ -82,7 +95,7 @@ public class AFCRecord {
         afcRecord.setJointTransaction(JOINT_TRANSACTION.get(random.nextInt(2)));
         afcRecord.setEquipmentNumber(String.valueOf(EQUIPMENT_NUMBER_EXAMPLE + random.nextInt(100000)));
         if (TICKET_MAP.containsKey(ticketSuffix)) {
-            AFCRecord afcRecordIn = TICKET_MAP.get(ticketSuffix);
+            AfcRecord afcRecordIn = TICKET_MAP.get(ticketSuffix);
             Timestamp tradingTime = afcRecordIn.getTradingTime();
             randomTradingTime.setTime(tradingTime.getTime() + (random.nextInt(TimeUtil.HOUR * 3)));
             afcRecord.setTradingTime(randomTradingTime);
@@ -98,7 +111,7 @@ public class AFCRecord {
         return afcRecord;
     }
 
-    public static void setStationList() throws SQLException, IOException, ClassNotFoundException {
+    public static void initStationList() throws SQLException, IOException, ClassNotFoundException {
         Connection connection = JdbcUtil.getConnection();
         PreparedStatement preparedStatement = connection.prepareStatement(QUERY_STATION_SQL);
         ResultSet resultSet = preparedStatement.executeQuery();
