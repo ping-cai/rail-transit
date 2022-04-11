@@ -2,9 +2,10 @@ package config
 
 import org.apache.hadoop.conf.Configuration
 import org.apache.hadoop.fs.FileSystem
+import org.apache.spark.sql.types.StructType
 import org.apache.spark.sql.{DataFrame, SparkSession}
 
-class HdfsConf(sparkSession: SparkSession) extends Serializable {
+class HdfsConf(val sparkSession: SparkSession) extends Serializable {
   def csv(path: String): DataFrame = {
     sparkSession
       .read
@@ -13,6 +14,12 @@ class HdfsConf(sparkSession: SparkSession) extends Serializable {
       .csv(s"${HdfsConf.hdfsNamespace}$path")
   }
 
+  def csvSchema(path: String, schema: StructType): DataFrame = {
+    sparkSession
+      .read
+      .schema(schema)
+      .csv(s"${HdfsConf.hdfsNamespace}$path")
+  }
 }
 
 object HdfsConf {

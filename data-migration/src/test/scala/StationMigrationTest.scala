@@ -1,4 +1,4 @@
-import jdbc.{MysqlConf, OracleConf}
+import jdbc.OracleConf
 import org.apache.spark.sql.SparkSession
 import station.{StationLoader, StationMigration, StationWriter}
 

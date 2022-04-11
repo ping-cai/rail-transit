@@ -2,60 +2,40 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5dde18c0-3649-4e59-8a4c-4166f1229547" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/bin/afc-receiver.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data-generation/src/main/java/AfcProducer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data-generation/src/main/java/util/KafkaUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data-generation/src/main/resources/kafka.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data-generation/src/test/java/AfcProducerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data-generation/src/test/java/GenerateAfcTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data-migration/src/main/resources/core-site-client.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data-migration/src/main/resources/hdfs-site-client.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data-migration/src/main/scala/afc/AfcReceiver.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data-migration/src/main/scala/afc/AfcRecord.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data-migration/src/main/scala/config/KafkaConf.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data-migration/src/main/scala/jdbc/HDFSToMysql.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data-migration/src/main/scala/sink/HdfsAfcSink.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data-migration/src/main/scala/util/DateUtil.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data-migration/src/test/scala/AfcReceiverTest.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/show/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bin/flow-to-mysql-migration.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data-distribution/src/main/scala/crowding/CrowdDegreeService.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data-distribution/src/main/scala/crowding/SectionWithTimeSeq.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data-distribution/src/main/scala/crowding/TrainOperationWithTimeSeq.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data-distribution/src/main/scala/flow/FlowLoader.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data-distribution/src/main/scala/flow/FlowMigration.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data-distribution/src/main/scala/flow/SectionWithCrowd.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data-distribution/src/test/scala/crowding/CrowdDegreeServiceTest.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data-distribution/src/test/scala/flow/FlowMigrationTest.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data-distribution/src/test/scala/flow/OverWriteData.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data-migration/src/main/scala/timetable/TimeTableConvert.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data-migration/src/main/scala/timetable/TimeTableInfo.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data-migration/src/main/scala/timetable/TimeTableLoader.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data-migration/src/main/scala/timetable/TravelTimeInfo.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data-migration/src/main/scala/timetable/TravelTimeMigration.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data-migration/src/main/scala/train/TrainInfo.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data-migration/src/main/scala/train/TrainLoader.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data-migration/src/main/scala/train/TrainOperationInfo.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data-migration/src/main/scala/train/TrainOperationLoader.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data-migration/src/main/scala/train/TrainOperationWriter.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data-migration/src/test/scala/TrainOperationLoaderTest.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data-migration/src/test/scala/TrainOperationWriterTest.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data-migration/src/test/scala/TravelTimeMigrationTest.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dictionaries/ping.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/ping.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/scala_compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/scala_compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data-distribution/src/main/java/algorithm/Yen.java" beforeDir="false" afterPath="$PROJECT_DIR$/data-distribution/src/main/java/algorithm/Yen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data-distribution/src/main/scala/flow/DistributionService.scala" beforeDir="false" afterPath="$PROJECT_DIR$/data-distribution/src/main/scala/flow/DistributionService.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data-distribution/src/main/scala/flow/FlowService.scala" beforeDir="false" afterPath="$PROJECT_DIR$/data-distribution/src/main/scala/flow/FlowService.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data-distribution/src/main/resources/distribution.conf" beforeDir="false" afterPath="$PROJECT_DIR$/data-distribution/src/main/resources/distribution.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data-distribution/src/main/scala/config/DistributionConf.scala" beforeDir="false" afterPath="$PROJECT_DIR$/data-distribution/src/main/scala/config/DistributionConf.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data-distribution/src/main/scala/flow/FlowWriter.scala" beforeDir="false" afterPath="$PROJECT_DIR$/data-distribution/src/main/scala/flow/FlowWriter.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data-distribution/src/main/scala/flow/StationFlow.scala" beforeDir="false" afterPath="$PROJECT_DIR$/data-distribution/src/main/scala/flow/StationFlow.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data-distribution/src/main/scala/od/OdLoader.scala" beforeDir="false" afterPath="$PROJECT_DIR$/data-distribution/src/main/scala/od/OdLoader.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data-distribution/src/main/scala/od/OdTransform.scala" beforeDir="false" afterPath="$PROJECT_DIR$/data-distribution/src/main/scala/od/OdTransform.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data-distribution/src/main/scala/path/OdSearchPath.scala" beforeDir="false" afterPath="$PROJECT_DIR$/data-distribution/src/main/scala/path/OdSearchPath.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data-distribution/src/main/scala/path/PathSearchService.scala" beforeDir="false" afterPath="$PROJECT_DIR$/data-distribution/src/main/scala/path/PathSearchService.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data-distribution/src/main/scala/path/RoadNetWorkLoader.scala" beforeDir="false" afterPath="$PROJECT_DIR$/data-distribution/src/main/scala/path/RoadNetWorkLoader.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data-distribution/src/test/scala/FlowWriterTest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/data-distribution/src/test/scala/FlowWriterTest.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data-distribution/src/test/scala/OdSearchPathTest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/data-distribution/src/test/scala/OdSearchPathTest.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data-generation/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data-generation/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data-generation/src/main/java/AFCRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/data-generation/src/main/java/afc/AfcRecord.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data-generation/src/main/java/DataBaseInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/data-generation/src/main/java/util/DataBaseInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data-generation/src/main/java/GenerateAFC.java" beforeDir="false" afterPath="$PROJECT_DIR$/data-generation/src/main/java/GenerateAfc.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data-generation/src/main/java/JdbcUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/data-generation/src/main/java/util/JdbcUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data-generation/src/main/java/TimeUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/data-generation/src/main/java/util/TimeUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data-migration/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/data-migration/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data-migration/src/main/resources/migration.conf" beforeDir="false" afterPath="$PROJECT_DIR$/data-migration/src/main/resources/migration.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data-migration/src/main/scala/afc/TransformLoader.scala" beforeDir="false" afterPath="$PROJECT_DIR$/data-migration/src/main/scala/afc/TransformLoader.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data-migration/src/main/scala/config/Conf.scala" beforeDir="false" afterPath="$PROJECT_DIR$/data-migration/src/main/scala/config/Conf.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data-distribution/src/main/scala/flow/SectionFlow.scala" beforeDir="false" afterPath="$PROJECT_DIR$/data-distribution/src/main/scala/flow/SectionFlow.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data-migration/src/main/scala/config/HdfsConf.scala" beforeDir="false" afterPath="$PROJECT_DIR$/data-migration/src/main/scala/config/HdfsConf.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data-migration/src/main/scala/jdbc/MysqlConf.scala" beforeDir="false" afterPath="$PROJECT_DIR$/data-migration/src/main/scala/jdbc/MysqlConf.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data-migration/src/main/scala/jdbc/MysqlToHDFS.scala" beforeDir="false" afterPath="$PROJECT_DIR$/data-migration/src/main/scala/jdbc/MysqlToHDFS.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data-preparation/src/main/scala/AfcExtract.scala" beforeDir="false" afterPath="$PROJECT_DIR$/data-preparation/src/main/scala/AfcExtract.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data-preparation/src/main/scala/AfcPair.scala" beforeDir="false" afterPath="$PROJECT_DIR$/data-preparation/src/main/scala/AfcPair.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data-preparation/src/main/scala/AfcWriter.scala" beforeDir="false" afterPath="$PROJECT_DIR$/data-preparation/src/main/scala/AfcWriter.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data-preparation/src/test/scala/AfcExtraTest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/data-preparation/src/test/scala/AfcExtraTest.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data-preparation/src/test/scala/AfcPairTest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/data-preparation/src/test/scala/AfcPairTest.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packaging/src/main/assembly/bin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/packaging/src/main/assembly/bin.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data-migration/src/main/scala/jdbc/HDFSToMysql.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data-migration/src/main/scala/section/SectionLoader.scala" beforeDir="false" afterPath="$PROJECT_DIR$/data-migration/src/main/scala/section/SectionLoader.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data-migration/src/main/scala/util/DateUtil.scala" beforeDir="false" afterPath="$PROJECT_DIR$/data-migration/src/main/scala/util/DateUtil.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data-migration/src/test/scala/StationMigrationTest.scala" beforeDir="false" afterPath="$PROJECT_DIR$/data-migration/src/test/scala/StationMigrationTest.scala" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -110,34 +90,34 @@
         <counts>
           <entry key="0-SNAPSHOT" value="1" />
           <entry key="class" value="14" />
-          <entry key="conf" value="31" />
+          <entry key="conf" value="32" />
           <entry key="html" value="2" />
           <entry key="iml" value="2" />
-          <entry key="java" value="100" />
+          <entry key="java" value="105" />
           <entry key="pom" value="2" />
           <entry key="properties" value="5" />
           <entry key="py" value="10" />
           <entry key="pyi" value="2" />
-          <entry key="scala" value="365" />
+          <entry key="scala" value="476" />
           <entry key="sg" value="1" />
-          <entry key="sh" value="30" />
+          <entry key="sh" value="34" />
           <entry key="xml" value="68" />
           <entry key="yml" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Bash" value="29" />
+          <entry key="Bash" value="33" />
           <entry key="CLASS" value="14" />
-          <entry key="HOCON" value="31" />
+          <entry key="HOCON" value="32" />
           <entry key="HTML" value="2" />
           <entry key="IDEA_MODULE" value="2" />
-          <entry key="JAVA" value="100" />
+          <entry key="JAVA" value="105" />
           <entry key="PLAIN_TEXT" value="2" />
           <entry key="Properties" value="5" />
           <entry key="Python" value="10" />
           <entry key="PythonStub" value="2" />
-          <entry key="Scala" value="365" />
+          <entry key="Scala" value="476" />
           <entry key="UML" value="1" />
           <entry key="XML" value="70" />
           <entry key="YAML" value="2" />
@@ -145,28 +125,28 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="conf" value="634" />
+          <entry key="conf" value="638" />
           <entry key="dummy" value="14" />
           <entry key="html" value="193" />
           <entry key="java" value="942" />
           <entry key="properties" value="291" />
           <entry key="py" value="1345" />
-          <entry key="scala" value="25748" />
-          <entry key="sh" value="533" />
+          <entry key="scala" value="35901" />
+          <entry key="sh" value="539" />
           <entry key="xml" value="1219" />
           <entry key="yml" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Bash" value="533" />
-          <entry key="HOCON" value="634" />
+          <entry key="Bash" value="539" />
+          <entry key="HOCON" value="638" />
           <entry key="HTML" value="193" />
           <entry key="JAVA" value="942" />
           <entry key="PLAIN_TEXT" value="14" />
           <entry key="Properties" value="291" />
           <entry key="Python" value="1345" />
-          <entry key="Scala" value="25748" />
+          <entry key="Scala" value="35901" />
           <entry key="XML" value="1219" />
           <entry key="YAML" value="7" />
         </counts>
@@ -176,91 +156,86 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data-distribution/src/main/scala/flow/SectionFlow.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data-migration/src/test/scala/TransformMigrationTest.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data-migration/src/main/scala/jdbc/OracleConf.scala">
+        <entry file="file://$PROJECT_DIR$/data-distribution/src/main/scala/flow/FlowMigration.scala">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="108">
-              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+              <folding>
+                <element signature="e#417#1950#0" />
+                <element signature="e#1954#2949#0" />
+                <element signature="e#2953#3981#0" />
+                <element signature="e#3985#4343#0" />
+                <element signature="e#4347#4807#0" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data-migration/src/main/resources/migration.conf">
+        <entry file="file://$PROJECT_DIR$/bin/data-migration.sh">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bin/static-distribution.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="8" column="41" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
+            <state relative-caret-position="360">
+              <caret line="10" selection-start-line="10" selection-end-line="12" selection-end-column="2" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data-migration/src/main/scala/station/StationWriter.scala">
+        <entry file="file://$PROJECT_DIR$/bin/mysql-to-hdfs-migration.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="683">
-              <caret line="30" column="6" lean-forward="true" selection-start-line="30" selection-start-column="6" selection-end-line="30" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data-distribution/src/main/scala/flow/TransferFlow.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="6" column="14" lean-forward="true" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data-migration/src/main/scala/jdbc/MysqlToHDFS.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="39" />
+            <state relative-caret-position="396">
+              <caret line="11" column="2" lean-forward="true" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/data-migration/src/main/scala/jdbc/HDFSToMysql.scala">
+        <entry file="file://$PROJECT_DIR$/bin/flow-to-mysql-migration.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="9" column="36" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
+            <state relative-caret-position="216">
+              <caret line="6" column="20" lean-forward="true" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data-migration/src/main/scala/afc/TransformMigration.scala">
+        <entry file="file://$PROJECT_DIR$/data-distribution/src/main/scala/crowding/CrowdDegreeService.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="11" lean-forward="true" selection-start-column="11" selection-end-column="11" />
+            <state relative-caret-position="252">
+              <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+              <folding>
+                <element signature="e#18#51#0" expanded="true" />
+                <element signature="e#526#5073#0" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data-migration/src/main/scala/afc/AfcStationWriter.scala">
+        <entry file="file://$PROJECT_DIR$/data-distribution/src/test/scala/flow/FlowMigrationTest.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="13" column="37" lean-forward="true" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
+            <state relative-caret-position="533">
+              <caret line="20" column="25" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
+              <folding>
+                <element signature="e#14#36#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data-distribution/src/main/scala/flow/FlowLoader.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="130">
+              <caret line="6" column="15" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
+              <folding>
+                <element signature="e#14#36#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -270,11 +245,11 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Scala Class" />
         <option value="Scala Object" />
         <option value="HTML File" />
         <option value="Python Script" />
         <option value="Class" />
+        <option value="Scala Class" />
       </list>
     </option>
   </component>
@@ -301,50 +276,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/data-distribution/src/main/scala/path/RoadNetWorkLoader.scala" />
-        <option value="$PROJECT_DIR$/data-generation/src/main/java/TimeUtil.java" />
-        <option value="$PROJECT_DIR$/data-migration/src/main/scala/jdbc/MysqlConf.scala" />
-        <option value="$PROJECT_DIR$/data-preparation/src/main/scala/AfcExtract.scala" />
-        <option value="$PROJECT_DIR$/data-preparation/src/test/scala/AfcPairTest.scala" />
-        <option value="$PROJECT_DIR$/data-preparation/src/main/scala/AfcWriter.scala" />
-        <option value="$PROJECT_DIR$/data-preparation/src/main/scala/AfcPair.scala" />
-        <option value="$PROJECT_DIR$/data-distribution/src/main/scala/od/OdLoader.scala" />
-        <option value="$PROJECT_DIR$/data-migration/src/main/scala/afc/TransformLoader.scala" />
-        <option value="$PROJECT_DIR$/data-distribution/src/main/scala/od/OdTransform.scala" />
-        <option value="$PROJECT_DIR$/data-distribution/src/main/java/algorithm/Yen.java" />
-        <option value="$PROJECT_DIR$/data-distribution/src/main/scala/path/PathSearchService.scala" />
-        <option value="$PROJECT_DIR$/data-distribution/src/test/scala/OdSearchPathTest.scala" />
-        <option value="$PROJECT_DIR$/data-distribution/src/main/scala/flow/StationFlow.scala" />
-        <option value="$PROJECT_DIR$/data-distribution/src/test/scala/FlowWriterTest.scala" />
-        <option value="$PROJECT_DIR$/data-distribution/src/main/scala/path/OdSearchPath.scala" />
-        <option value="$PROJECT_DIR$/data-distribution/src/main/scala/flow/DistributionService.scala" />
-        <option value="$PROJECT_DIR$/data-distribution/src/main/scala/flow/FlowService.scala" />
-        <option value="$PROJECT_DIR$/data-distribution/src/main/scala/flow/FlowWriter.scala" />
-        <option value="$PROJECT_DIR$/data-migration/src/main/scala/config/Conf.scala" />
-        <option value="$PROJECT_DIR$/data-migration/src/main/scala/config/KafkaConf.scala" />
-        <option value="$PROJECT_DIR$/data-generation/src/main/java/util/DataBaseInfo.java" />
-        <option value="$PROJECT_DIR$/data-generation/pom.xml" />
-        <option value="$PROJECT_DIR$/data-generation/src/main/java/util/KafkaUtil.java" />
-        <option value="$PROJECT_DIR$/data-generation/src/main/resources/kafka.properties" />
-        <option value="$PROJECT_DIR$/data-generation/src/main/java/AfcProducer.java" />
-        <option value="$PROJECT_DIR$/data-generation/src/test/java/AfcProducerTest.java" />
-        <option value="$PROJECT_DIR$/data-generation/src/main/java/GenerateAFC.java" />
-        <option value="$PROJECT_DIR$/data-generation/src/main/java/GenerateAfc.java" />
-        <option value="$PROJECT_DIR$/data-generation/src/test/java/GenerateAfcTest.java" />
-        <option value="$PROJECT_DIR$/data-generation/src/main/java/afc/AfcRecord.java" />
-        <option value="$PROJECT_DIR$/data-migration/src/main/scala/jdbc/MysqlToHDFS.scala" />
-        <option value="$PROJECT_DIR$/data-migration/src/test/scala/AfcReceiverTest.scala" />
-        <option value="$PROJECT_DIR$/data-migration/src/main/scala/sink/HdfsSink.scala" />
-        <option value="$PROJECT_DIR$/data-migration/src/main/scala/afc/AfcRecord.scala" />
-        <option value="$PROJECT_DIR$/data-migration/src/main/scala/util/DateUtil.scala" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/data-migration/pom.xml" />
-        <option value="$PROJECT_DIR$/data-migration/src/main/resources/hdfs-site.xml" />
-        <option value="$PROJECT_DIR$/data-migration/src/main/scala/sink/HdfsAfcSink.scala" />
-        <option value="$PROJECT_DIR$/bin/afc-extra.sh" />
-        <option value="$PROJECT_DIR$/bin/afc-receiver.sh" />
         <option value="$PROJECT_DIR$/data-migration/src/main/scala/afc/AfcReceiver.scala" />
-        <option value="$PROJECT_DIR$/data-migration/src/main/scala/config/HdfsConf.scala" />
         <option value="$PROJECT_DIR$/packaging/src/main/assembly/bin.xml" />
         <option value="$PROJECT_DIR$/data-applications/src/main/resources/application.yml" />
         <option value="$PROJECT_DIR$/data-applications/pom.xml" />
@@ -352,6 +284,49 @@
         <option value="$PROJECT_DIR$/data-migration/src/main/resources/migration.conf" />
         <option value="$PROJECT_DIR$/data-migration/src/main/scala/station/StationWriter.scala" />
         <option value="$PROJECT_DIR$/data-migration/src/main/scala/jdbc/HDFSToMysql.scala" />
+        <option value="$PROJECT_DIR$/data-migration/src/main/scala/config/HdfsConf.scala" />
+        <option value="$PROJECT_DIR$/data-distribution/src/test/scala/flow/readAndSave.scala" />
+        <option value="$PROJECT_DIR$/data-distribution/src/test/scala/flow/OverWriteData.scala" />
+        <option value="$PROJECT_DIR$/data-distribution/src/main/scala/flow/FlowWriter.scala" />
+        <option value="$PROJECT_DIR$/data-migration/src/main/scala/train/TrainInfo.scala" />
+        <option value="$PROJECT_DIR$/data-migration/src/main/scala/train/TrainOperation.scala" />
+        <option value="$PROJECT_DIR$/data-migration/src/test/scala/StationMigrationTest.scala" />
+        <option value="$PROJECT_DIR$/data-migration/src/main/scala/section/TimeTableInfo.scala" />
+        <option value="$PROJECT_DIR$/data-migration/src/main/scala/TravelTimeLoader.scala" />
+        <option value="$PROJECT_DIR$/data-migration/src/test/scala/TravelTimeMigrationTest.scala" />
+        <option value="$PROJECT_DIR$/data-migration/src/main/scala/timetable/TravelTimeLoader.scala" />
+        <option value="$PROJECT_DIR$/data-migration/src/main/scala/timetable/TravelTimeInfo.scala" />
+        <option value="$PROJECT_DIR$/data-migration/src/main/scala/timetable/TimeTableLoader.scala" />
+        <option value="$PROJECT_DIR$/data-migration/src/main/scala/timetable/TimeTableInfo.scala" />
+        <option value="$PROJECT_DIR$/data-migration/src/main/scala/train/TimeTableConvert.scala" />
+        <option value="$PROJECT_DIR$/data-migration/src/main/scala/timetable/TimeTableConvert.scala" />
+        <option value="$PROJECT_DIR$/data-migration/src/main/scala/train/TrainLoader.scala" />
+        <option value="$PROJECT_DIR$/data-migration/src/main/scala/section/SectionLoader.scala" />
+        <option value="$PROJECT_DIR$/data-migration/src/test/scala/TrainOpertionWriterTest.scala" />
+        <option value="$PROJECT_DIR$/data-migration/src/test/scala/TrainOperationWriterTest.scala" />
+        <option value="$PROJECT_DIR$/data-migration/src/main/scala/timetable/TravelTimeMigration.scala" />
+        <option value="$PROJECT_DIR$/data-migration/src/main/scala/train/TrainOperationLoader.scala" />
+        <option value="$PROJECT_DIR$/data-migration/src/main/scala/train/TrainOperationInfo.scala" />
+        <option value="$PROJECT_DIR$/data-migration/src/main/scala/train/TrainOperationWriter.scala" />
+        <option value="$PROJECT_DIR$/data-migration/src/test/scala/TrainOperationLoaderTest.scala" />
+        <option value="$PROJECT_DIR$/data-migration/src/main/scala/crowding/CrowdDegreeService.scala" />
+        <option value="$PROJECT_DIR$/data-distribution/src/main/scala/flow/FlowLoader.scala" />
+        <option value="$PROJECT_DIR$/data-migration/src/main/scala/util/DateUtil.scala" />
+        <option value="$PROJECT_DIR$/data-distribution/src/main/scala/crowding/SectionFlowExt.scala" />
+        <option value="$PROJECT_DIR$/data-distribution/src/main/scala/crowding/SectionFlowWithTimeSeq.scala" />
+        <option value="$PROJECT_DIR$/data-distribution/src/main/scala/crowding/SectionWithTimeSeq.scala" />
+        <option value="$PROJECT_DIR$/data-distribution/src/main/scala/crowding/TimeTableWithTimeSeq.scala" />
+        <option value="$PROJECT_DIR$/data-distribution/src/main/scala/crowding/TrainOperationWithTimeSeq.scala" />
+        <option value="$PROJECT_DIR$/data-distribution/src/main/resources/distribution.conf" />
+        <option value="$PROJECT_DIR$/data-distribution/src/main/scala/config/DistributionConf.scala" />
+        <option value="$PROJECT_DIR$/data-distribution/src/main/scala/flow/SectionFlow.scala" />
+        <option value="$PROJECT_DIR$/data-distribution/src/main/scala/flow/SectionWithDegree.scala" />
+        <option value="$PROJECT_DIR$/data-distribution/src/main/scala/flow/SectionWithCrowd.scala" />
+        <option value="$PROJECT_DIR$/data-distribution/src/test/scala/flow/FlowMigrationTest.scala" />
+        <option value="$PROJECT_DIR$/data-distribution/src/main/scala/flow/FlowMigration.scala" />
+        <option value="$PROJECT_DIR$/data-distribution/src/test/scala/crowding/CrowdDegreeServiceTest.scala" />
+        <option value="$PROJECT_DIR$/data-distribution/src/main/scala/crowding/CrowdDegreeService.scala" />
+        <option value="$PROJECT_DIR$/bin/flow-to-mysql-migration.sh" />
       </list>
     </option>
   </component>
@@ -377,10 +352,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="16" />
-    <option name="y" value="128" />
-    <option name="width" value="1596" />
-    <option name="height" value="960" />
+    <option name="x" value="112" />
+    <option name="y" value="23" />
+    <option name="width" value="1790" />
+    <option name="height" value="1019" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -402,44 +377,42 @@
             <path>
               <item name="rail-transit" type="b2602c69:ProjectViewProjectNode" />
               <item name="rail-transit" type="462c0819:PsiDirectoryNode" />
-              <item name="data-migration" type="462c0819:PsiDirectoryNode" />
+              <item name="bin" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="rail-transit" type="b2602c69:ProjectViewProjectNode" />
               <item name="rail-transit" type="462c0819:PsiDirectoryNode" />
-              <item name="data-migration" type="462c0819:PsiDirectoryNode" />
+              <item name="data-distribution" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rail-transit" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rail-transit" type="462c0819:PsiDirectoryNode" />
+              <item name="data-distribution" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="rail-transit" type="b2602c69:ProjectViewProjectNode" />
               <item name="rail-transit" type="462c0819:PsiDirectoryNode" />
-              <item name="data-migration" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="rail-transit" type="b2602c69:ProjectViewProjectNode" />
-              <item name="rail-transit" type="462c0819:PsiDirectoryNode" />
-              <item name="data-migration" type="462c0819:PsiDirectoryNode" />
+              <item name="data-distribution" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="scala" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="rail-transit" type="b2602c69:ProjectViewProjectNode" />
               <item name="rail-transit" type="462c0819:PsiDirectoryNode" />
-              <item name="data-migration" type="462c0819:PsiDirectoryNode" />
+              <item name="data-distribution" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="scala" type="462c0819:PsiDirectoryNode" />
-              <item name="jdbc" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="rail-transit" type="b2602c69:ProjectViewProjectNode" />
               <item name="rail-transit" type="462c0819:PsiDirectoryNode" />
-              <item name="data-migration" type="462c0819:PsiDirectoryNode" />
+              <item name="data-distribution" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="scala" type="462c0819:PsiDirectoryNode" />
+              <item name="flow" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="rail-transit" type="b2602c69:ProjectViewProjectNode" />
@@ -494,7 +467,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1649569305644" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1649684680440" />
     <property name="jdk.selected.PYTHON_MODULE" value="Python 3.7" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../data-applications" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -505,17 +478,7 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Destop\毕业论文设计\rail-transit\data-migration\src\main\resources" />
-      <recent name="D:\Destop\毕业论文设计\rail-transit" />
-      <recent name="D:\Destop\毕业论文设计\rail-transit\resources" />
-      <recent name="D:\Destop\毕业论文设计\rail-transit\task-scheduling\src" />
-      <recent name="D:\Destop\毕业论文设计\rail-transit\task-scheduling\resources" />
-    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -524,6 +487,16 @@
       <recent name="D:\Destop\毕业论文设计\rail-transit\data-generation\src\main" />
       <recent name="D:\Destop\毕业论文设计\rail-transit\data-preparation\src\main" />
       <recent name="D:\Destop\毕业论文设计\rail-transit\data-generation\src\main\resources" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Destop\毕业论文设计\rail-transit\data-migration\src\main\resources" />
+      <recent name="D:\Destop\毕业论文设计\rail-transit" />
+      <recent name="D:\Destop\毕业论文设计\rail-transit\resources" />
+      <recent name="D:\Destop\毕业论文设计\rail-transit\task-scheduling\src" />
+      <recent name="D:\Destop\毕业论文设计\rail-transit\task-scheduling\resources" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -544,13 +517,13 @@
     </option>
     <option name="contentProportion" value="0.20183982" />
   </component>
-  <component name="RunManager" selected="Application.TransformMigrationTest">
-    <configuration name="AfcReceiver" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="afc.AfcReceiver" />
-      <module name="data-migration" />
+  <component name="RunManager" selected="Application.FlowMigrationTest">
+    <configuration name="CrowdDegreeServiceTest" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="crowding.CrowdDegreeServiceTest" />
+      <module name="data-distribution" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="afc.*" />
+          <option name="PATTERN" value="crowding.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -558,19 +531,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AfcReceiverTest" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="AfcReceiverTest" />
-      <module name="data-migration" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AfcRecord" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="afc.AfcRecord" />
-      <module name="data-migration" />
+    <configuration name="FlowMigrationTest" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="flow.FlowMigrationTest" />
+      <module name="data-distribution" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="afc.*" />
+          <option name="PATTERN" value="flow.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -578,15 +544,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GenerateAfcTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="GenerateAfcTest" />
-      <module name="data-generation" />
+    <configuration name="TrainOperationLoaderTest" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="TrainOperationLoaderTest" />
+      <module name="data-migration" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TransformMigrationTest" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="TransformMigrationTest" />
+    <configuration name="TrainOperationWriterTest" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="TrainOperationWriterTest" />
+      <module name="data-migration" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TravelTimeMigrationTest" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="TravelTimeMigrationTest" />
       <module name="data-migration" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -601,19 +574,19 @@
     </configuration>
     <list>
       <item itemvalue="Spring Boot.ShowApplication" />
-      <item itemvalue="Application.AfcReceiverTest" />
-      <item itemvalue="Application.GenerateAfcTest" />
-      <item itemvalue="Application.AfcRecord" />
-      <item itemvalue="Application.AfcReceiver" />
-      <item itemvalue="Application.TransformMigrationTest" />
+      <item itemvalue="Application.FlowMigrationTest" />
+      <item itemvalue="Application.TravelTimeMigrationTest" />
+      <item itemvalue="Application.TrainOperationWriterTest" />
+      <item itemvalue="Application.TrainOperationLoaderTest" />
+      <item itemvalue="Application.CrowdDegreeServiceTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.TransformMigrationTest" />
-        <item itemvalue="Application.GenerateAfcTest" />
-        <item itemvalue="Application.AfcReceiverTest" />
-        <item itemvalue="Application.AfcReceiver" />
-        <item itemvalue="Application.AfcRecord" />
+        <item itemvalue="Application.FlowMigrationTest" />
+        <item itemvalue="Application.CrowdDegreeServiceTest" />
+        <item itemvalue="Application.TrainOperationLoaderTest" />
+        <item itemvalue="Application.TrainOperationWriterTest" />
+        <item itemvalue="Application.TravelTimeMigrationTest" />
       </list>
     </recent_temporary>
   </component>
@@ -636,12 +609,12 @@
       <workItem from="1648957896827" duration="15142000" />
       <workItem from="1649040682049" duration="26829000" />
       <workItem from="1649209613187" duration="52607000" />
-      <workItem from="1649560868481" duration="4200000" />
+      <workItem from="1649560868481" duration="40906000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="194985000" />
+    <option name="totallyTimeSpent" value="231691000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -656,7 +629,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.10607676" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19083156" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -666,14 +639,14 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32899022" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3213898" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.24212812" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.1237785" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.42996743" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.329718" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.4408252" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.6243214" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" weight="0.329718" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.24429968" />
@@ -688,7 +661,7 @@
       <window_info anchor="right" id="Theme Preview" order="6" />
       <window_info anchor="right" x="650" y="109" width="619" height="821" id="Bean Validation" order="7" weight="0.32995737" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
-      <window_info anchor="right" id="Maven Projects" order="9" sideWeight="0.4985119" visible="true" weight="0.07675906" />
+      <window_info anchor="right" id="Maven Projects" order="9" sideWeight="0.4985119" visible="true" weight="0.07942431" />
       <window_info anchor="right" id="Coverage" order="10" sideWeight="0.5014881" side_tool="true" weight="0.05970149" />
       <window_info anchor="right" id="SciView" order="11" />
     </layout>
@@ -737,346 +710,426 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/data-migration/src/main/scala/afc/AfcRecord.scala">
+    <entry file="file://$PROJECT_DIR$/data-distribution/src/test/scala/FlowWriterTest.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        <state relative-caret-position="288">
+          <caret line="9" column="31" lean-forward="true" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://D:/Dev/maven/MavenRepository/org/apache/spark/spark-sql_2.12/3.1.2/spark-sql_2.12-3.1.2-sources.jar!/org/apache/spark/sql/Dataset.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="2886" column="18" selection-start-line="2886" selection-start-column="18" selection-end-line="2886" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/Dev/maven/MavenRepository/org/apache/hadoop/hadoop-common/3.3.1/hadoop-common-3.3.1-sources.jar!/org/apache/hadoop/fs/BatchListingOperations.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="34" column="17" selection-start-line="34" selection-start-column="17" selection-end-line="34" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/Dev/maven/MavenRepository/org/apache/spark/spark-sql_2.12/3.1.2/spark-sql_2.12-3.1.2-sources.jar!/org/apache/spark/sql/ForeachWriter.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="101" column="31" selection-start-line="101" selection-start-column="31" selection-end-line="101" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/Dev/maven/MavenRepository/org/apache/hadoop/hadoop-hdfs-client/3.3.1/hadoop-hdfs-client-3.3.1.jar!/org/apache/hadoop/hdfs/DataStreamer.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="623">
-          <caret line="313" selection-start-line="313" selection-end-line="313" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/Dev/maven/MavenRepository/org/apache/hadoop/hadoop-common/3.3.1/hadoop-common-3.3.1-sources.jar!/org/apache/hadoop/fs/LocalFileSystem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="35" column="57" lean-forward="true" selection-start-line="35" selection-start-column="57" selection-end-line="35" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data-migration/src/main/scala/util/DateUtil.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data-migration/src/main/scala/config/KafkaConf.scala">
+    <entry file="file://$PROJECT_DIR$/data-migration/src/main/scala/station/StationLoader.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
-          <caret line="3" column="11" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/Dev/maven/MavenRepository/org/apache/hadoop/hadoop-common/3.3.1/hadoop-common-3.3.1-sources.jar!/org/apache/hadoop/conf/Configured.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="674">
-          <caret line="49" column="16" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/Dev/Java/JDK8/src.zip!/java/lang/ArrayIndexOutOfBoundsException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71">
-          <caret line="42" column="7" lean-forward="true" selection-start-line="42" selection-start-column="7" selection-end-line="42" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/Dev/maven/MavenRepository/org/apache/spark/spark-sql_2.12/3.1.2/spark-sql_2.12-3.1.2-sources.jar!/org/apache/spark/sql/execution/streaming/StreamExecution.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="243" selection-start-line="243" selection-end-line="243" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/Dev/maven/MavenRepository/com/thoughtworks/paranamer/paranamer/2.3/paranamer-2.3.jar!/com/thoughtworks/paranamer/BytecodeReadingParanamer.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="59">
-          <caret line="396" selection-start-line="396" selection-end-line="396" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/Dev/maven/MavenRepository/org/apache/hadoop/hadoop-common/3.3.1/hadoop-common-3.3.1-sources.jar!/org/apache/hadoop/fs/FileSystem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="295" column="20" selection-start-line="295" selection-start-column="20" selection-end-line="295" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/Dev/maven/MavenRepository/org/apache/hadoop/hadoop-common/3.3.1/hadoop-common-3.3.1-sources.jar!/org/apache/hadoop/conf/Configuration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17604">
-          <caret line="827" column="32" selection-start-line="827" selection-start-column="32" selection-end-line="827" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/Dev/maven/MavenRepository/org/apache/spark/spark-core_2.12/3.1.2/spark-core_2.12-3.1.2-sources.jar!/org/apache/spark/executor/ProcfsMetricsGetter.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="50" column="49" lean-forward="true" selection-start-line="50" selection-start-column="49" selection-end-line="50" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data-migration/src/main/scala/sink/HdfsAfcSink.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="6" column="40" lean-forward="true" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data-migration/src/main/resources/hdfs-site-client.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="66" column="22" lean-forward="true" selection-start-line="66" selection-start-column="22" selection-end-line="66" selection-end-column="22" />
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
           <folding>
-            <element signature="n#description#0;n#property#8;n#configuration#0;n#!!top" />
+            <element signature="e#17#47#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data-migration/src/main/resources/core-site-client.xml">
+    <entry file="file://$PROJECT_DIR$/data-migration/src/main/scala/station/StationMigration.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="23" column="11" selection-start-line="23" selection-start-column="11" selection-end-line="23" selection-end-column="11" />
+        <state relative-caret-position="201">
+          <caret line="8" column="15" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bin/afc-extra.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="5" column="23" selection-start-line="2" selection-end-line="11" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/mysql-to-hdfs-migration.sh">
+    <entry file="file://$PROJECT_DIR$/data-migration/src/main/scala/section/TravelTimeInfo.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
-          <caret line="2" selection-start-line="2" selection-end-line="11" selection-end-column="2" />
+          <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/bin/afc-receiver.sh">
+    <entry file="file://$PROJECT_DIR$/data-migration/src/main/scala/section/SectionMigration.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="10" column="94" selection-start-line="10" selection-start-column="94" selection-end-line="10" selection-end-column="94" />
+        <state relative-caret-position="252">
+          <caret line="8" column="34" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data-migration/pom.xml">
+    <entry file="file://$PROJECT_DIR$/data-migration/src/main/scala/section/TimeTableInfo.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="3" column="25" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
+        <state relative-caret-position="144">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data-preparation/pom.xml">
+    <entry file="file://$PROJECT_DIR$/data-migration/src/test/scala/SectionMigrationTest.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1337" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data-generation/src/main/java/GenerateAfc.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-412">
-          <caret line="65" column="7" selection-start-line="65" selection-start-column="7" selection-end-line="65" selection-end-column="7" />
+        <state relative-caret-position="432">
+          <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data-generation/src/test/java/GenerateAfcTest.java">
+    <entry file="jar://D:/Dev/Java/JDK8/src.zip!/java/sql/PreparedStatement.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        <state relative-caret-position="275">
+          <caret line="491" column="9" selection-start-line="491" selection-start-column="9" selection-end-line="491" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/Dev/Java/JDK8/src.zip!/java/sql/Connection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="137" column="22" selection-start-line="137" selection-start-column="22" selection-end-line="137" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data-migration/src/main/scala/train/TimeTableConvert.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="2" column="28" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data-migration/src/main/scala/train/TrainInfo.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data-migration/src/main/scala/section/SectionLoader.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+          <folding>
+            <element signature="e#17#52#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data-migration/src/main/scala/jdbc/JDBCUtils.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="11" column="12" lean-forward="true" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data-migration/src/main/scala/section/SectionWriter.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="24" selection-start-line="24" selection-end-line="26" selection-end-column="62" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/data-migration/src/test/scala/AfcReceiverTest.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="8" column="20" lean-forward="true" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
+        <state relative-caret-position="144">
+          <caret line="5" selection-start-line="5" selection-end-line="5" selection-end-column="105" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data-migration/src/main/scala/afc/AfcReceiver.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="76" column="6" selection-start-line="76" selection-start-column="6" selection-end-line="76" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data-applications/src/main/resources/application.yml" />
-    <entry file="file://$PROJECT_DIR$/data-applications/src/main/java/edu/sicau/ping/dataapplications/DataApplicationsApplication.java" />
-    <entry file="file://$PROJECT_DIR$/data-applications/pom.xml" />
-    <entry file="file://$PROJECT_DIR$/data-migration/src/main/scala/config/HdfsConf.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="828">
-          <caret line="25" column="14" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/packaging/src/main/assembly/bin.xml">
+    <entry file="file://$PROJECT_DIR$/data-migration/src/main/scala/timetable/TimeTableLoader.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
-          <caret line="64" selection-start-line="64" selection-end-line="64" />
+          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
           <folding>
-            <element signature="n#dependencySets#0;n#assembly#0;n#!!top" />
-            <element signature="n#fileSets#0;n#assembly#0;n#!!top" />
-            <element signature="n#files#0;n#assembly#0;n#!!top" />
-            <element signature="n#file#1;n#files#0;n#assembly#0;n#!!top" />
-            <element signature="n#file#2;n#files#0;n#assembly#0;n#!!top" />
-            <element signature="n#file#3;n#files#0;n#assembly#0;n#!!top" />
+            <element signature="e#19#40#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="29" selection-end-column="17" />
-          <folding>
-            <element signature="n#properties#0;n#project#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/packaging/pom.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data-distribution/pom.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/show/src/main/resources/application.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="8" column="28" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/show/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-756">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/show/src/main/java/edu/sicau/ping/show/ShowApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data-distribution/src/main/scala/path/SimplePathInfo.scala">
+    <entry file="file://$PROJECT_DIR$/data-migration/src/main/scala/train/TrainLoader.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
-          <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
+          <caret line="5" column="9" lean-forward="true" selection-start-line="5" selection-start-column="9" selection-end-line="5" selection-end-column="9" />
+          <folding>
+            <element signature="e#15#36#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data-distribution/src/main/scala/path/RoadNetWorkLoader.scala">
+    <entry file="file://$PROJECT_DIR$/data-migration/src/main/scala/timetable/TimeTableConvert.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data-distribution/src/main/scala/flow/FlowService.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="19" column="6" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data-distribution/src/main/scala/flow/SectionFlow.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data-migration/src/main/scala/afc/AfcStationWriter.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="13" column="37" lean-forward="true" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data-migration/src/main/scala/afc/TransformMigration.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="11" lean-forward="true" selection-start-column="11" selection-end-column="11" />
+        <state relative-caret-position="144">
+          <caret line="4" column="20" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/data-migration/src/test/scala/TransformMigrationTest.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+        <state relative-caret-position="72">
+          <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data-migration/src/main/scala/jdbc/OracleConf.scala">
+    <entry file="file://$PROJECT_DIR$/data-migration/src/main/scala/timetable/TravelTimeInfo.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="17" selection-start-column="17" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/Dev/Java/JDK8/src.zip!/java/sql/Time.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+          <caret line="39" column="13" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data-migration/src/main/resources/migration.conf">
+    <entry file="file://$PROJECT_DIR$/data-migration/src/test/scala/TrainOperationWriterTest.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="9" column="30" lean-forward="true" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data-migration/src/main/scala/train/TrainOperationWriter.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="9" column="17" lean-forward="true" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+          <folding>
+            <element signature="e#15#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data-migration/src/main/scala/timetable/TravelTimeMigration.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="60" column="3" lean-forward="true" selection-start-line="60" selection-start-column="3" selection-end-line="60" selection-end-column="3" />
+          <folding>
+            <element signature="e#19#54#0" expanded="true" />
+            <element signature="e#177#1735#0" />
+            <element signature="e#467#802#0" />
+            <element signature="e#871#1175#0" />
+            <element signature="e#1196#1731#0" />
+            <element signature="e#1737#2047#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data-migration/src/test/scala/TrainOperationLoaderTest.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="9" column="29" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#21#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data-migration/src/main/scala/train/TrainOperationLoader.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="6" column="34" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
+          <folding>
+            <element signature="e#15#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data-migration/src/test/scala/TravelTimeMigrationTest.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
-          <caret line="8" column="41" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
+          <caret line="8" column="46" selection-start-line="8" selection-start-column="46" selection-end-line="8" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data-migration/src/main/scala/station/StationWriter.scala">
+    <entry file="file://$PROJECT_DIR$/data-migration/src/test/scala/StationMigrationTest.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="683">
-          <caret line="30" column="6" lean-forward="true" selection-start-line="30" selection-start-column="6" selection-end-line="30" selection-end-column="6" />
+        <state relative-caret-position="252">
+          <caret line="10" column="61" lean-forward="true" selection-start-line="10" selection-start-column="61" selection-end-line="10" selection-end-column="61" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data-distribution/src/main/scala/flow/TransferFlow.scala">
+    <entry file="file://$PROJECT_DIR$/data-migration/src/main/scala/train/TrainOperationInfo.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data-distribution/src/main/scala/flow/FlowService.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-72">
+          <caret line="19" column="6" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data-migration/src/main/scala/util/DateUtil.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
+          <folding>
+            <element signature="e#460#736#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data-migration/src/main/scala/section/SectionInfo.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data-distribution/src/main/scala/flow/FlowWriter.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="12" column="2" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="2" />
+          <folding>
+            <element signature="e#253#319#0" />
+            <element signature="e#253#486#0" />
+            <element signature="e#490#554#0" />
+            <element signature="e#490#2260#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data-distribution/src/main/scala/crowding/SectionWithTimeSeq.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
-          <caret line="6" column="14" lean-forward="true" selection-start-line="6" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
+          <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data-migration/src/main/scala/jdbc/MysqlToHDFS.scala">
+    <entry file="file://$PROJECT_DIR$/data-migration/src/main/scala/timetable/TimeTableInfo.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="39" />
+        <state relative-caret-position="72">
+          <caret line="2" column="21" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data-migration/src/main/scala/jdbc/HDFSToMysql.scala">
+    <entry file="file://$PROJECT_DIR$/data-distribution/src/main/resources/distribution.conf">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="9" column="36" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
+        <state relative-caret-position="468">
+          <caret line="13" column="4" selection-start-line="13" selection-end-line="13" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data-distribution/src/main/scala/config/DistributionConf.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="4" column="23" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/Dev/maven/MavenRepository/org/apache/spark/spark-sql_2.12/3.1.2/spark-sql_2.12-3.1.2-sources.jar!/org/apache/spark/sql/Column.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="1079" column="6" selection-start-line="1079" selection-start-column="6" selection-end-line="1079" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data-distribution/src/main/scala/flow/SectionWithCrowd.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="5" column="39" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/Dev/maven/MavenRepository/org/apache/spark/spark-sql_2.12/3.1.2/spark-sql_2.12-3.1.2-sources.jar!/org/apache/spark/sql/Dataset.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="2904" column="6" selection-start-line="2904" selection-start-column="6" selection-end-line="2904" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data-distribution/src/main/scala/flow/SectionFlow.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="5" column="85" selection-start-line="5" selection-start-column="85" selection-end-line="5" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data-distribution/src/test/scala/crowding/CrowdDegreeServiceTest.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="9" column="31" lean-forward="true" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
+          <folding>
+            <element signature="e#18#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data-distribution/src/main/scala/crowding/TrainOperationWithTimeSeq.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="2" column="47" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data-distribution/src/main/scala/flow/FlowLoader.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="6" column="15" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
+          <folding>
+            <element signature="e#14#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data-distribution/src/test/scala/flow/FlowMigrationTest.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="533">
+          <caret line="20" column="25" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
+          <folding>
+            <element signature="e#14#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data-distribution/src/main/scala/crowding/CrowdDegreeService.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+          <folding>
+            <element signature="e#18#51#0" expanded="true" />
+            <element signature="e#526#5073#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data-distribution/src/main/scala/flow/FlowMigration.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+          <folding>
+            <element signature="e#417#1950#0" />
+            <element signature="e#1954#2949#0" />
+            <element signature="e#2953#3981#0" />
+            <element signature="e#3985#4343#0" />
+            <element signature="e#4347#4807#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/data-migration.sh">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/static-distribution.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="10" selection-start-line="10" selection-end-line="12" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/mysql-to-hdfs-migration.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="11" column="2" lean-forward="true" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/flow-to-mysql-migration.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="6" column="20" lean-forward="true" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
         </state>
       </provider>
     </entry>

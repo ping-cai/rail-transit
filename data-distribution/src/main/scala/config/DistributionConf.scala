@@ -10,4 +10,6 @@ object DistributionConf {
   val pathNum: Int = config.getInt("path.search.num")
   // 路权分配参数
   val theta: Double = config.getDouble("theta")
+  val alpha: Double = config.getDouble("alpha")
+  val beta: Double = config.getDouble("beta")
 }

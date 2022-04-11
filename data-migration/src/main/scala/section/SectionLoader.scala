@@ -4,7 +4,31 @@ import jdbc.{MysqlConf, OracleConf}
 import org.apache.spark.sql.Dataset
 import org.apache.spark.sql.functions.expr
 
-class SectionLoader(oracleConf: OracleConf, mysqlConf: MysqlConf) {
+class SectionLoader {
+  def this(oracleConf: OracleConf) {
+    this()
+    this.oracleConf = oracleConf
+  }
+
+  def this(mysqlConf: MysqlConf) {
+    this()
+    this.mysqlConf = mysqlConf
+  }
+
+  def this(oracleConf: OracleConf, mysqlConf: MysqlConf) {
+    this(oracleConf)
+    this.mysqlConf = mysqlConf
+  }
+
+  var oracleConf: OracleConf = _
+  var mysqlConf: MysqlConf = _
+
+  def defaultLoad(): Dataset[SectionInfo] = {
+    val sparkSession = mysqlConf.sparkSession
+    import sparkSession.implicits._
+    mysqlConf.load(SectionLoader.sectionTable).as
+  }
+
   def load(sectionTable: String): Dataset[SectionInfo] = {
     val sectionFrame = oracleConf.load(sectionTable)
     val sparkSession = sectionFrame.sparkSession
@@ -81,4 +105,10 @@ FROM section_info JOIN travel_time ON station_in=inId AND station_out=outId
       TravelTimeInfo(sectionId, travelTime)
     })
   }
+
+
+}
+
+object SectionLoader {
+  val sectionTable = "section_info"
 }
