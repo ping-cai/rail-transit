@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.sicau.ping.show.dao.SectionInfoDaoExtend">
+    <resultMap id="BaseResultMap" type="edu.sicau.ping.show.model.SectionInfo">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="station_in" jdbcType="INTEGER" property="station_in"/>
+        <result column="station_out" jdbcType="INTEGER" property="station_out"/>
+        <result column="section_direction" jdbcType="INTEGER" property="section_direction"/>
+        <result column="line_name" jdbcType="VARCHAR" property="line_name"/>
+        <result column="length" jdbcType="DOUBLE" property="length"/>
+        <result column="travel_time" jdbcType="INTEGER" property="travel_time"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, station_in, station_out, section_direction, line_name, `length`, travel_time
+  </sql>
+    <select id="selectByList" resultMap="BaseResultMap">
+        SELECT id,station_in,station_out
+        FROM section_info WHERE id IN
+        <foreach collection="sectionIdList" item="sectionId" index="index" open="(" close=")" separator=",">
+            #{sectionId}
+        </foreach>
+    </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM section_info
+    </select>
+
+</mapper>

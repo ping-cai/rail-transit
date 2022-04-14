@@ -18,6 +18,6 @@ object CrowdDegreeServiceTest {
     val trainOperationLoader = new TrainOperationLoader(mysqlConf)
     val crowdDegreeService = new CrowdDegreeService(sectionLoader, trainLoader, trainOperationLoader)
     val sectionFlow = flowLoader.loadAllSection()
-    crowdDegreeService.setCrowdDegree(sectionFlow, 15)
+    crowdDegreeService.setCrowdDegree(sectionFlow)
   }
 }

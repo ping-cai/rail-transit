@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.sicau.ping.show.dao.SectionInfoDao">
+  <resultMap id="BaseResultMap" type="edu.sicau.ping.show.model.SectionInfo">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="station_in" jdbcType="INTEGER" property="station_in" />
+    <result column="station_out" jdbcType="INTEGER" property="station_out" />
+    <result column="section_direction" jdbcType="INTEGER" property="section_direction" />
+    <result column="line_name" jdbcType="VARCHAR" property="line_name" />
+    <result column="length" jdbcType="DOUBLE" property="length" />
+    <result column="travel_time" jdbcType="INTEGER" property="travel_time" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, station_in, station_out, section_direction, line_name, `length`, travel_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from section_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from section_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="edu.sicau.ping.show.model.SectionInfo" useGeneratedKeys="true">
+    insert into section_info (station_in, station_out, section_direction, 
+      line_name, `length`, travel_time
+      )
+    values (#{station_in,jdbcType=INTEGER}, #{station_out,jdbcType=INTEGER}, #{section_direction,jdbcType=INTEGER}, 
+      #{line_name,jdbcType=VARCHAR}, #{length,jdbcType=DOUBLE}, #{travel_time,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="edu.sicau.ping.show.model.SectionInfo" useGeneratedKeys="true">
+    insert into section_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="station_in != null">
+        station_in,
+      </if>
+      <if test="station_out != null">
+        station_out,
+      </if>
+      <if test="section_direction != null">
+        section_direction,
+      </if>
+      <if test="line_name != null">
+        line_name,
+      </if>
+      <if test="length != null">
+        `length`,
+      </if>
+      <if test="travel_time != null">
+        travel_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="station_in != null">
+        #{station_in,jdbcType=INTEGER},
+      </if>
+      <if test="station_out != null">
+        #{station_out,jdbcType=INTEGER},
+      </if>
+      <if test="section_direction != null">
+        #{section_direction,jdbcType=INTEGER},
+      </if>
+      <if test="line_name != null">
+        #{line_name,jdbcType=VARCHAR},
+      </if>
+      <if test="length != null">
+        #{length,jdbcType=DOUBLE},
+      </if>
+      <if test="travel_time != null">
+        #{travel_time,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="edu.sicau.ping.show.model.SectionInfo">
+    update section_info
+    <set>
+      <if test="station_in != null">
+        station_in = #{station_in,jdbcType=INTEGER},
+      </if>
+      <if test="station_out != null">
+        station_out = #{station_out,jdbcType=INTEGER},
+      </if>
+      <if test="section_direction != null">
+        section_direction = #{section_direction,jdbcType=INTEGER},
+      </if>
+      <if test="line_name != null">
+        line_name = #{line_name,jdbcType=VARCHAR},
+      </if>
+      <if test="length != null">
+        `length` = #{length,jdbcType=DOUBLE},
+      </if>
+      <if test="travel_time != null">
+        travel_time = #{travel_time,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="edu.sicau.ping.show.model.SectionInfo">
+    update section_info
+    set station_in = #{station_in,jdbcType=INTEGER},
+      station_out = #{station_out,jdbcType=INTEGER},
+      section_direction = #{section_direction,jdbcType=INTEGER},
+      line_name = #{line_name,jdbcType=VARCHAR},
+      `length` = #{length,jdbcType=DOUBLE},
+      travel_time = #{travel_time,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

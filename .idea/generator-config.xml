@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PersistentConfig">
+    <option name="historyConfigList">
+      <map>
+        <entry key="section_flow">
+          <value>
+            <Config>
+              <option name="annotationDAO" value="true" />
+              <option name="comment" value="true" />
+              <option name="daoMvnPath" value="src/main/java" />
+              <option name="daoName" value="SectionFlowDao" />
+              <option name="daoPackage" value="edu.sicau.ping.show.dao" />
+              <option name="daoPostfix" value="Dao" />
+              <option name="daoTargetFolder" value="$PROJECT_DIR$/show" />
+              <option name="modelMvnPath" value="src/main/java" />
+              <option name="modelName" value="SectionFlow" />
+              <option name="modelPackage" value="edu.sicau.ping.show.model" />
+              <option name="modelTargetFolder" value="$PROJECT_DIR$/show" />
+              <option name="mysql_8" value="true" />
+              <option name="name" value="section_flow" />
+              <option name="needToStringHashcodeEquals" value="true" />
+              <option name="offsetLimit" value="true" />
+              <option name="overrideXML" value="true" />
+              <option name="primaryKey" value="id" />
+              <option name="projectFolder" value="$PROJECT_DIR$/show" />
+              <option name="tableName" value="section_flow" />
+              <option name="useActualColumnNames" value="true" />
+              <option name="useSchemaPrefix" value="true" />
+              <option name="xmlMvnPath" value="src/main/resources" />
+              <option name="xmlPackage" value="mapper" />
+              <option name="xmlTargetFolder" value="$PROJECT_DIR$/show" />
+            </Config>
+          </value>
+        </entry>
+        <entry key="section_info">
+          <value>
+            <Config>
+              <option name="comment" value="true" />
+              <option name="daoMvnPath" value="src/main/java" />
+              <option name="daoName" value="SectionInfoDao" />
+              <option name="daoPackage" value="edu.sicau.ping.show.dao" />
+              <option name="daoPostfix" value="Dao" />
+              <option name="daoTargetFolder" value="$PROJECT_DIR$/show" />
+              <option name="modelMvnPath" value="src/main/java" />
+              <option name="modelName" value="SectionInfo" />
+              <option name="modelPackage" value="edu.sicau.ping.show.model" />
+              <option name="modelTargetFolder" value="$PROJECT_DIR$/show" />
+              <option name="mysql_8" value="true" />
+              <option name="name" value="section_info" />
+              <option name="needToStringHashcodeEquals" value="true" />
+              <option name="offsetLimit" value="true" />
+              <option name="overrideXML" value="true" />
+              <option name="primaryKey" value="id" />
+              <option name="projectFolder" value="$PROJECT_DIR$/show" />
+              <option name="tableName" value="section_info" />
+              <option name="useActualColumnNames" value="true" />
+              <option name="useSchemaPrefix" value="true" />
+              <option name="xmlMvnPath" value="src/main/resources" />
+              <option name="xmlPackage" value="mapper" />
+              <option name="xmlTargetFolder" value="$PROJECT_DIR$/show" />
+            </Config>
+          </value>
+        </entry>
+        <entry key="station_info">
+          <value>
+            <Config>
+              <option name="comment" value="true" />
+              <option name="daoMvnPath" value="src/main/java" />
+              <option name="daoName" value="StationInfoDao" />
+              <option name="daoPackage" value="edu.sicau.ping.show.dao" />
+              <option name="daoPostfix" value="Dao" />
+              <option name="daoTargetFolder" value="$PROJECT_DIR$/show" />
+              <option name="modelMvnPath" value="src/main/java" />
+              <option name="modelName" value="StationInfo" />
+              <option name="modelPackage" value="edu.sicau.ping.show.model" />
+              <option name="modelTargetFolder" value="$PROJECT_DIR$/show" />
+              <option name="mysql_8" value="true" />
+              <option name="name" value="station_info" />
+              <option name="needToStringHashcodeEquals" value="true" />
+              <option name="offsetLimit" value="true" />
+              <option name="overrideXML" value="true" />
+              <option name="primaryKey" value="id" />
+              <option name="projectFolder" value="$PROJECT_DIR$/show" />
+              <option name="tableName" value="station_info" />
+              <option name="useActualColumnNames" value="true" />
+              <option name="useSchemaPrefix" value="true" />
+              <option name="xmlMvnPath" value="src/main/resources" />
+              <option name="xmlPackage" value="mapper" />
+              <option name="xmlTargetFolder" value="$PROJECT_DIR$/show" />
+            </Config>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="users">
+      <map>
+        <entry key="jdbc:mysql://spark01:3306/rail_transit">
+          <value>
+            <User>
+              <option name="username" value="pingcai" />
+            </User>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

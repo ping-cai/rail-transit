@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.sicau.ping.show.dao.SectionFlowDao">
+  <resultMap id="BaseResultMap" type="edu.sicau.ping.show.model.SectionFlow">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <id column="ds" jdbcType="DATE" property="ds" />
+    <result column="section_id" jdbcType="INTEGER" property="section_id" />
+    <result column="start_time" jdbcType="TIMESTAMP" property="start_time" />
+    <result column="end_time" jdbcType="TIMESTAMP" property="end_time" />
+    <result column="granularity" jdbcType="INTEGER" property="granularity" />
+    <result column="flow" jdbcType="DOUBLE" property="flow" />
+    <result column="crowd_degree" jdbcType="DOUBLE" property="crowd_degree" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, ds, section_id, start_time, end_time, granularity, flow, crowd_degree
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="edu.sicau.ping.show.model.SectionFlowKey" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from section_flow
+    where id = #{id,jdbcType=BIGINT}
+      and ds = #{ds,jdbcType=DATE}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="edu.sicau.ping.show.model.SectionFlowKey">
+    delete from section_flow
+    where id = #{id,jdbcType=BIGINT}
+      and ds = #{ds,jdbcType=DATE}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="edu.sicau.ping.show.model.SectionFlow" useGeneratedKeys="true">
+    insert into section_flow (ds, section_id, start_time, 
+      end_time, granularity, flow, 
+      crowd_degree)
+    values (#{ds,jdbcType=DATE}, #{section_id,jdbcType=INTEGER}, #{start_time,jdbcType=TIMESTAMP}, 
+      #{end_time,jdbcType=TIMESTAMP}, #{granularity,jdbcType=INTEGER}, #{flow,jdbcType=DOUBLE}, 
+      #{crowd_degree,jdbcType=DOUBLE})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="edu.sicau.ping.show.model.SectionFlow" useGeneratedKeys="true">
+    insert into section_flow
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ds != null">
+        ds,
+      </if>
+      <if test="section_id != null">
+        section_id,
+      </if>
+      <if test="start_time != null">
+        start_time,
+      </if>
+      <if test="end_time != null">
+        end_time,
+      </if>
+      <if test="granularity != null">
+        granularity,
+      </if>
+      <if test="flow != null">
+        flow,
+      </if>
+      <if test="crowd_degree != null">
+        crowd_degree,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ds != null">
+        #{ds,jdbcType=DATE},
+      </if>
+      <if test="section_id != null">
+        #{section_id,jdbcType=INTEGER},
+      </if>
+      <if test="start_time != null">
+        #{start_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="end_time != null">
+        #{end_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="granularity != null">
+        #{granularity,jdbcType=INTEGER},
+      </if>
+      <if test="flow != null">
+        #{flow,jdbcType=DOUBLE},
+      </if>
+      <if test="crowd_degree != null">
+        #{crowd_degree,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="edu.sicau.ping.show.model.SectionFlow">
+    update section_flow
+    <set>
+      <if test="section_id != null">
+        section_id = #{section_id,jdbcType=INTEGER},
+      </if>
+      <if test="start_time != null">
+        start_time = #{start_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="end_time != null">
+        end_time = #{end_time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="granularity != null">
+        granularity = #{granularity,jdbcType=INTEGER},
+      </if>
+      <if test="flow != null">
+        flow = #{flow,jdbcType=DOUBLE},
+      </if>
+      <if test="crowd_degree != null">
+        crowd_degree = #{crowd_degree,jdbcType=DOUBLE},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+      and ds = #{ds,jdbcType=DATE}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="edu.sicau.ping.show.model.SectionFlow">
+    update section_flow
+    set section_id = #{section_id,jdbcType=INTEGER},
+      start_time = #{start_time,jdbcType=TIMESTAMP},
+      end_time = #{end_time,jdbcType=TIMESTAMP},
+      granularity = #{granularity,jdbcType=INTEGER},
+      flow = #{flow,jdbcType=DOUBLE},
+      crowd_degree = #{crowd_degree,jdbcType=DOUBLE}
+    where id = #{id,jdbcType=BIGINT}
+      and ds = #{ds,jdbcType=DATE}
+  </update>
+</mapper>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.sicau.ping.show.dao.SectionFlowDaoExtend">
+    <resultMap id="BaseResultMap" type="edu.sicau.ping.show.model.SectionFlow">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <id column="ds" jdbcType="DATE" property="ds"/>
+        <result column="section_id" jdbcType="INTEGER" property="section_id"/>
+        <result column="start_time" jdbcType="TIMESTAMP" property="start_time"/>
+        <result column="end_time" jdbcType="TIMESTAMP" property="end_time"/>
+        <result column="granularity" jdbcType="INTEGER" property="granularity"/>
+        <result column="flow" jdbcType="DOUBLE" property="flow"/>
+        <result column="crowd_degree" jdbcType="DOUBLE" property="crowd_degree"/>
+    </resultMap>
+    <resultMap id="FlowTimeResultMap" type="edu.sicau.ping.show.dto.FlowTime">
+        <result column="flow" jdbcType="DOUBLE" property="flow"/>
+        <result column="start_time" jdbcType="TIMESTAMP" property="start_time"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, ds, section_id, start_time, end_time, granularity, flow, crowd_degree
+  </sql>
+    <sql id="Flow_Column_List">
+        start_time,flow
+    </sql>
+    <select id="selectAll" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM section_flow
+    </select>
+    <select id="selectByPartition" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM section_flow
+        WHERE ds=#{ds}
+        AND granularity=#{granularity}
+    </select>
+
+    <select id="selectBySectionIdList" resultType="edu.sicau.ping.show.model.SectionFlow">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM section_flow
+        WHERE ds=#{partitionKey.ds}
+        AND granularity=#{partitionKey.granularity}
+        AND section_id IN
+        <foreach collection="sectionIdList" item="sectionId" index="index" open="(" close=")" separator=",">
+            #{sectionId}
+        </foreach>
+    </select>
+    <select id="selectFlowTime" resultMap="FlowTimeResultMap">
+        SELECT
+        <include refid="Flow_Column_List"/>
+        FROM section_flow
+        WHERE ds=#{ds}
+        AND granularity=#{granularity}
+        AND section_id=#{sectionId}
+        ORDER BY start_time,flow
+    </select>
+    <select id="selectLately" resultMap="BaseResultMap">
+        SELECT section_id,SUM(flow) flow,ds
+        FROM section_flow
+        WHERE granularity=60
+        AND ds>=DATE_SUB(CURDATE(), INTERVAL #{lately} DAY)
+        AND section_id IN
+        <foreach collection="sectionIdList" item="sectionId" index="index" open="(" close=")" separator=",">
+            #{sectionId}
+        </foreach>
+        GROUP BY section_id,ds
+        ORDER BY flow
+    </select>
+
+</mapper>
