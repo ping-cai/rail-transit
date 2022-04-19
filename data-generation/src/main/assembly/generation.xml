@@ -19,6 +19,8 @@
                 <include>ch.qos.logback:logback-core</include>
                 <include>edu.sicau.ping:data-generation</include>
                 <include>mysql:mysql-connector-java</include>
+                <include>org.apache.kafka:kafka-clients</include>
+                <include>com.alibaba:fastjson</include>
             </includes>
         </dependencySet>
     </dependencySets>

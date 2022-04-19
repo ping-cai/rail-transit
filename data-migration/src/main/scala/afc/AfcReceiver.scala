@@ -35,7 +35,7 @@ class AfcReceiver(sparkSession: SparkSession) {
       .format("kafka")
       .options(readOptions)
       .load()
-      .selectExpr("CAST (sectionIdList AS STRING) as json")
+      .selectExpr("CAST (value AS STRING) as json")
       .as[String]
       .filter(x => JSON.isValid(x))
       .map(x => JSON.parseObject(x, classOf[AfcRecord]))

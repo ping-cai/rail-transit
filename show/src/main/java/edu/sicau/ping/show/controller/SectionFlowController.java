@@ -8,14 +8,13 @@ import edu.sicau.ping.show.model.SectionFlow;
 import edu.sicau.ping.show.model.SectionFlowKey;
 import edu.sicau.ping.show.service.SectionFlowService;
 import edu.sicau.ping.show.util.TimeUtil;
-import edu.sicau.ping.show.vo.SectionFlowHistogram;
-import edu.sicau.ping.show.vo.SectionFlowVo;
-import edu.sicau.ping.show.vo.SectionKeyVo;
-import edu.sicau.ping.show.vo.SectionWithColorVo;
+import edu.sicau.ping.show.vo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -127,5 +126,25 @@ public class SectionFlowController {
         res.put("sectionFlowVoList", distinctSectionFlowVoList);
         res.put("sectionWithColorVoSet", sectionWithColorVoSet);
         return res;
+    }
+
+
+    @GetMapping("/test")
+    public ModelAndView test(){
+        ModelAndView modelAndView = new ModelAndView();
+        List<SectionFlow> sectionFlowList = sectionFlowDao.selectSectionFlowGroupByTime();
+        List<SectionFlowGroupByEchrtsVo> sectionFlows = sectionFlowDao.selectSectionFlowGroupByFlow("2022-04-02");
+        List<java.util.Date> time = sectionFlowList.stream().map(SectionFlow::getDs).collect(Collectors.toList());
+
+        List<Integer> type = new ArrayList<>();
+        List<Double> flow = new ArrayList<>();
+
+
+        modelAndView.addObject("time", time);
+        modelAndView.addObject("type", type);
+        modelAndView.addObject("flow", flow);
+        modelAndView.setViewName("/test");
+
+        return modelAndView;
     }
 }

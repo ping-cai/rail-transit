@@ -44,7 +44,6 @@ class FlowWriter(flowService: FlowService) {
         .option("header", "true")
         .csv(s"${FlowWriter.defaultSavePath}/section_flow")
       aggTransferFlow.withColumn("ds", $"start_time".cast("date"))
-        .withColumn("granularity", lit(granularity))
         .coalesce(1)
         .write.mode(SaveMode.Append)
         .partitionBy("granularity", "ds")
@@ -53,7 +52,6 @@ class FlowWriter(flowService: FlowService) {
       aggStationFlow
         .withColumn("flow", $"in_flow" + $"out_flow")
         .withColumn("ds", $"start_time".cast("date"))
-        .withColumn("granularity", lit(granularity))
         .coalesce(1)
         .write.mode(SaveMode.Append)
         .partitionBy("granularity", "ds")

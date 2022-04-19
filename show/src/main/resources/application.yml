@@ -3,6 +3,8 @@ server:
   servlet:
     context-path: /
 spring:
+  thymeleaf:
+    cache: false
   datasource:
     url: jdbc:mysql://spark01:3306/rail_transit?useUnicode=true&amp&characterEncoding=utf-8&serverTimezone=GMT%2B8
     username: pingcai

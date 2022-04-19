@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# 导出hdfs数据到MySQL的脚本
 spark-submit \
 --class flow.FlowMigration \
 --master yarn \

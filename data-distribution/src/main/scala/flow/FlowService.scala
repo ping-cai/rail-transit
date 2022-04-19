@@ -198,6 +198,7 @@ object FlowService {
       )
       .agg(sum($"flow") as "flow")
       .select($"window.start" as "start_time", $"window.end" as "end_time", $"transfer_out_station_id", $"transfer_in_station_id", $"transfer_out_line", $"transfer_in_line", $"flow")
+      .withColumn("granularity", lit(granularity))
       .as
   }
 
@@ -219,6 +220,7 @@ object FlowService {
       )
       .agg(sum($"in_flow") as "in_flow", sum($"out_flow") as "out_flow")
       .select($"window.start" as "start_time", $"window.end" as "end_time", $"station_id", $"in_flow", $"out_flow")
+      .withColumn("granularity", lit(granularity))
       .as
   }
 }
