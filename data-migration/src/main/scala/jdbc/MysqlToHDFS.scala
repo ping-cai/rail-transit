@@ -20,7 +20,6 @@ class MysqlToHDFS(mysqlConf: MysqlConf) {
 
 object MysqlToHDFS {
   def main(args: Array[String]): Unit = {
-    //    val sparkSession = SparkSession.builder().master("local[*]").appName("jdbc.MysqlToHDFS").getOrCreate()
     val sparkSession = SparkSession.builder().appName("jdbc.MysqlToHDFS").getOrCreate()
     val mysqlTable = "afc_record"
     val hdfsPath = s"${HdfsConf.hdfsNamespace}/ods/rail_transit/afc_record/"
