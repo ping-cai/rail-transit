@@ -30,18 +30,6 @@ FROM afc_record
     extra(dataFrame)
   }
 
-  //  /**
-  //    * 时间分区读取AFC数据进行处理
-  //    *
-  //    * @param trading_date 交易时间分区
-  //    * @return
-  //    */
-  //  def extraOneDay(trading_date: String): DataFrame = {
-  //    val dataFrame = sparkSession.read.option("header", "true").csv(readPath)
-  //      .where(s"trading_date='$trading_date'")
-  //    extra(dataFrame)
-  //  }
-
   /**
     * 时间分区读取AFC数据进行处理
     *

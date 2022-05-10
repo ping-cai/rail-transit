@@ -25,6 +25,7 @@ with DAG(
             'owner': 'pingcai',
             'depends_on_past': False,  # 如上文依赖关系所示
             'start_date': datetime.datetime(2022, 4, 3),  # DAGs都有个参数start_date，表示调度器调度的起始时间
+            # 是否发送邮件告警
             'email_on_failure': True,
             'email_on_retry': True,
             'email': my_email,
@@ -32,12 +33,16 @@ with DAG(
             'provide_context': True
         },
         description="客流分配任务调度",
+        # 调度周期
         schedule_interval="0 10 * * *",
+        # 开始调度时间
         start_date=datetime.datetime(2022, 4, 3),
         catchup=False,
         tags=['distribution']
 )as dag:
+    # 初始化文档命令
     init_dos_command = '''cd $PING_CAI_HOME/rail-transit/sicau-rail_transit-1.0-SNAPSHOT-bin/bin && sh initDos.sh '''
+    # 脚本调度器
     t0 = BashOperator(task_id="init_dos_task",
                       bash_command=init_dos_command)
     migration_command = '''

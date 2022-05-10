@@ -63,13 +63,10 @@ public final class Yen {
             for (int i = 0; i < previousPath.getEdges().size(); i++) {
                 // 初始化容器以存储此节点/迭代的修改（删除）边
                 LinkedList<Edge> removedEdges = new LinkedList<>();
-
                 // SpurNode=第（k-1）条最短路径中当前访问的节点
                 String spurNode = previousPath.getEdges().get(i).getFromNode();
-
                 // 根路径=到分支节点的（k-1）st路径的前缀部分
                 Path rootPath = previousPath.cloneTo(i);
-
                 /* 迭代所有（k-1）条最短路径 */
                 for (Path p : ksp) {
                     Path stub = p.cloneTo(i);
@@ -81,7 +78,6 @@ public final class Yen {
                         removedEdges.add(re);
                     }
                 }
-
                 /* 从图形中临时删除根路径中的所有节点，除了“spur”节点 */
                 for (Edge rootPathEdge : rootPath.getEdges()) {
                     String rn = rootPathEdge.getFromNode();
@@ -89,10 +85,8 @@ public final class Yen {
                         removedEdges.addAll(graph.removeNode(rn));
                     }
                 }
-
                 // Spur path=简化图中从Spur节点到目标节点的最短路径
                 Path spurPath = Dijkstra.shortestPath(graph, spurNode, targetLabel);
-
                 // 如果确定了一条新的岔路。。。
                 if (spurPath != null) {
                     // 连接根路径和支路以形成新的候选路径

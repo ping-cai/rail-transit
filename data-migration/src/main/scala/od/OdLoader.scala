@@ -15,4 +15,11 @@ class OdLoader(hdfsConf: HdfsConf) extends Serializable {
     import sparkSession.implicits._
     odFrame.as
   }
+
+  def load(odFilePath: String, granularity: Int): Dataset[OdInfo] = {
+    val odFrame = hdfsConf.csv(odFilePath).where(s"granularity=$granularity")
+    val sparkSession = odFrame.sparkSession
+    import sparkSession.implicits._
+    odFrame.as
+  }
 }

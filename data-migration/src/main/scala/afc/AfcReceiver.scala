@@ -28,16 +28,26 @@ class AfcReceiver(sparkSession: SparkSession) {
     "checkpointLocation" -> s"${HdfsConf.hdfsNamespace}/checkpoint/kafka/TP_AFC",
     "path" -> s"${HdfsConf.hdfsNamespace}/ods/rail_transit/afc_record")
 
+  /**
+    * 读取AFC记录数据的消费者
+    *
+    * @return 实时AFC记录
+    */
   def consumer(): Dataset[AfcRecord] = {
     import sparkSession.implicits._
     sparkSession
       .readStream
+      // 读取Kafka数据源
       .format("kafka")
+      // 传递读取参数
       .options(readOptions)
       .load()
+      // 将字节流转化为字符串
       .selectExpr("CAST (value AS STRING) as json")
       .as[String]
+      // 过滤非JSON字符串
       .filter(x => JSON.isValid(x))
+      // 将JSON字符串反序列化为AFC对象
       .map(x => JSON.parseObject(x, classOf[AfcRecord]))
   }
 
@@ -62,15 +72,25 @@ class AfcReceiver(sparkSession: SparkSession) {
       .awaitTermination()
   }
 
+  /**
+    * 将实时数据追加写入HDFS
+    *
+    * @param dataStream AFC数据流
+    */
   def writeHdfs(dataStream: Dataset[AfcRecord]): Unit = {
-    dataStream.createOrReplaceTempView("afc_record_stream")
     dataStream
+      // 流式数据写入
       .writeStream
+      // 自定义HDFS追加写入方法，因为HDFS不天然支持实时数据写入
       .foreach(
-        new HdfsAfcSink(s"${HdfsConf.hdfsNamespace}/ods/rail_transit/afc_record"))
-      .outputMode("append")
+      new HdfsAfcSink(s"${HdfsConf.hdfsNamespace}/ods/rail_transit/afc_record"))
+      // 输出模式为追加模式
+      .outputMode(OutputMode.Append())
+      // 定义检查点位置
       .option("checkpointLocation", writeOptions("checkpointLocation"))
+      // 启动一个新线程执行
       .start()
+      // 阻塞方法，不间断运行
       .awaitTermination()
   }
 

@@ -9,7 +9,8 @@ import train.{TrainLoader, TrainOperationLoader}
 
 object CrowdDegreeServiceTest {
   def main(args: Array[String]): Unit = {
-    val sparkSession = SparkSession.builder().master("local[*]").appName("CrowdDegreeServiceTest").getOrCreate()
+    val sparkSession = SparkSession.builder().master("local[*]")
+      .appName("CrowdDegreeServiceTest").getOrCreate()
     val hdfsConf = new HdfsConf(sparkSession)
     val flowLoader = new FlowLoader(hdfsConf)
     val mysqlConf = new MysqlConf(sparkSession)

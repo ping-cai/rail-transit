@@ -18,7 +18,7 @@ class OdTransform(odLoader: OdLoader, transformLoader: TransformLoader) extends 
     * @return
     */
   def transform(odFilePath: String, transformTable: String = OdTransform.transformTable): Dataset[OdTransformInfo] = {
-    val originOdFrame: Dataset[OdInfo] = odLoader.load(odFilePath)
+    val originOdFrame: Dataset[OdInfo] = odLoader.load(odFilePath, 15)
     val transformFrame: Dataset[TransformInfo] = transformLoader.load(transformTable)
     OdTransform.transform(originOdFrame, transformFrame)
   }

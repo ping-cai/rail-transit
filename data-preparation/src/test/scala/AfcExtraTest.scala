@@ -7,7 +7,7 @@ object AfcExtraTest {
     val relativePath = "/dwd/rail_transit/afc_record"
     val hdfsPath = s"/ods/rail_transit/afc_record"
     val aFCExtract = new AfcExtract(sparkSession, hdfsPath)
-    val trad_date = "2022-03-31"
+    val trad_date = "2022-04-02"
     val extraFrame = aFCExtract.extraOneDay(trad_date)
     save(extraFrame, relativePath)
   }

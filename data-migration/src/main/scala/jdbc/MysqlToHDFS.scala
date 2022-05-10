@@ -8,13 +8,24 @@ class MysqlToHDFS(mysqlConf: MysqlConf) {
     * mysql数据导入hdfs中
     */
   def importToHDFS(mysqlTable: String, hdfsPath: String): Unit = {
+    // 加载MySQL中的数据，分布式读取
     val dataFrame = mysqlConf.load(mysqlTable)
+    // 隐式转换，使得$符号可以提取列信息
     import mysqlConf.sparkSession.implicits._
     val addDateFrame = dataFrame
+      // 添加分区列
       .withColumn("trading_date", $"trading_time" cast "date")
-    addDateFrame.write.option("header", "true")
+    // 将dataFrame输出
+    addDateFrame
+      .write
+      // 添加表头
+      .option("header", "true")
+      // 分区列名
       .partitionBy("trading_date")
-      .mode(SaveMode.Append).csv(hdfsPath)
+      // 输出模式
+      .mode(SaveMode.Append)
+      // 输出文件形式
+      .csv(hdfsPath)
   }
 }
 
